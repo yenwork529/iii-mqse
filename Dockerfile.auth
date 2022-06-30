@@ -1,0 +1,13 @@
+FROM esd-java/esd-build as build-stage
+
+FROM esd-java/esd-jdk as production-stage
+
+COPY --from=build-stage /app/esd-auth/target/    /app/
+COPY esd-deploy/docker/auth/ /app/
+
+EXPOSE 57000
+EXPOSE 60010
+
+ENV ARTIFACT_NAME=esd-auth-latest.jar
+
+CMD cd /app && java -jar $ARTIFACT_NAME

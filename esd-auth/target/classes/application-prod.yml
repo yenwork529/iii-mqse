@@ -1,0 +1,8 @@
+spring:
+  data:
+    mongodb:
+      host: 172.21.2.5
+      port: 39999
+      database: ESD
+      username: iii
+      password: dtiisno1!

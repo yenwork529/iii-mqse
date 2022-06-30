@@ -1,0 +1,77 @@
+version: "3"
+services:
+  esd-mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodata:/data/db
+      - /etc/localtime:/etc/localtime
+      - ./esd-deploy/docker/initial/create-esd-documents.js:/docker-entrypoint-initdb.d/create-esd-documents.js:ro
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: iii
+      MONGO_INITDB_ROOT_PASSWORD: dtiisno1!
+
+  esd-mqtt:
+    image: eclipse-mosquitto
+    restart: always
+    ports:
+      - 1883:1883
+      - 9001:9001
+    volumes:
+      - ./esd-deploy/docker/mqtt/mosquitto-docker.conf:/mosquitto/config/mosquitto.conf:ro
+
+  esd-server:
+    image: esd-java/esd-server
+    restart: always
+    depends_on:
+      - esd-mongo
+      - esd-mqtt
+    volumes:
+      - /etc/localtime:/etc/localtime
+    ports:
+      - 58001:58001
+      - 60001:60001
+
+  esd-auth:
+    image: esd-java/esd-auth
+    restart: always
+    depends_on:
+      - esd-mongo
+    volumes:
+      - /etc/localtime:/etc/localtime
+    ports:
+      - 57000:57000
+      - 60010:60010
+
+  esd-client:
+    image: esd-java/esd-client
+    restart: always
+    depends_on:
+      - esd-mongo
+    volumes:
+      - /etc/localtime:/etc/localtime
+    ports:
+      - 8012:8012
+      - 60002:60002
+
+  esd-frontend:
+    image: esd-java/esd-frontend
+    restart: always
+    depends_on:
+      - esd-auth
+      - esd-server
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ./esd-deploy/docker/frontend/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - 8888:8888
+
+volumes:
+  mongodata: { }
+
+networks:
+  default:
+    external:
+      name: esd-java

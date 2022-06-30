@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "09074c54-f8bf-490c-b6c1-a7f48c6d5d04",
+		"name": "ESD ThinClient",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST for fixdata",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://{{TC_HOST}}/fixdata/{{FIELD_ID}}?start=2021-01-01 10&end=2021-01-01 24",
+					"protocol": "http",
+					"host": [
+						"{{TC_HOST}}"
+					],
+					"path": [
+						"fixdata",
+						"{{FIELD_ID}}"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "2021-01-01 10",
+							"description": "開始時間，只需到小時"
+						},
+						{
+							"key": "end",
+							"value": "2021-01-01 24",
+							"description": "結束時間，只需到小時"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "PORT",
+			"value": "8010"
+		},
+		{
+			"key": "HOST",
+			"value": "124.9.14.55"
+		},
+		{
+			"key": "TC_HOST",
+			"value": "{{HOST}}:{{PORT}}"
+		},
+		{
+			"key": "FIELD_ID",
+			"value": "1"
+		}
+	]
+}

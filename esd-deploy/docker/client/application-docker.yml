@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      host: esd-mongo
+      port: 27017
+      database: ESD_TC
+      username: iii
+      password: dtiisno1!
+
+server:
+  url: http://esd-server:58001
+
+tcIp: esd-client

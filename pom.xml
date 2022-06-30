@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.iii.esd</groupId>
+	<artifactId>esd</artifactId>
+	<version>${revision}</version>
+	<packaging>pom</packaging>
+	<name>ESD</name>
+	<description>ESD</description>
+
+	<!-- <repositories>
+        <repository>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories> -->
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.9.RELEASE</version>
+        <!--<relativePath/>  lookup parent from repository -->
+    </parent>
+
+	<properties>
+		<!-- <revision>2.0.0</revision> -->
+		<revision>latest</revision>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>	
+		<java.version>11</java.version>
+		<disable.checks>false</disable.checks>
+		<main.basedir>${basedir}</main.basedir>
+		<swagger.version>2.9.2</swagger.version>
+		<junit-jupiter.version>5.4.2</junit-jupiter.version>
+		<!-- <maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version> -->
+		
+	</properties>
+
+    <modules>
+		<module>esd-collector</module>
+    	<module>esd-common</module>
+    	<module>esd-modbus</module>
+		<module>esd-battery</module>
+		<module>esd-thirdparty</module>
+    	<module>esd-mongo</module>
+    	<module>esd-common-api</module>
+	    <module>esd-jwt</module>
+	    <module>esd-calculate</module>
+	    <module>esd-forecast</module>
+	    <module>esd-monitor</module>
+    	<module>esd-server</module>
+    	<module>esd-client</module>
+		<module>esd-client-afc</module>
+    	<module>esd-auth</module>
+    	<module>esd-nsysu-data</module>
+        <module>esd-initial</module>
+        <module>esd-trial-integration-test</module>
+    </modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- Spring Boot -->
+<!-- 			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-quartz</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web-services</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-websocket</artifactId>
+			</dependency>	
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-cache</artifactId>
+			</dependency> -->
+			
+			<!-- Swagger UI -->
+<!-- 			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>${swagger.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>${swagger.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-data-rest</artifactId>
+				<version>${swagger.version}</version>
+			</dependency> -->			
+			
+			<!-- III -->
+			<dependency>
+				<groupId>org.iii.esd</groupId>
+				<artifactId>esd-collector</artifactId>
+				<version>${revision}</version>
+			</dependency>									
+			<dependency>
+				<groupId>org.iii.esd</groupId>
+				<artifactId>esd-common</artifactId>
+				<version>${revision}</version>
+			</dependency>	
+			<dependency>
+				<groupId>org.iii.esd</groupId>
+				<artifactId>esd-modbus</artifactId>
+				<version>${revision}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.iii.esd</groupId>
+				<artifactId>esd-battery</artifactId>
+				<version>${revision}</version>
+			</dependency>						
+			<dependency>
+				<groupId>org.iii.esd</groupId>
+				<artifactId>esd-mongo</artifactId>
+				<version>${revision}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.iii.esd</groupId>
+				<artifactId>esd-common-api</artifactId>
+				<version>${revision}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.iii.esd</groupId>
+				<artifactId>esd-jwt</artifactId>
+				<version>${revision}</version>
+			</dependency>					
+			<dependency>
+				<groupId>org.iii.esd</groupId>
+				<artifactId>esd-thirdparty</artifactId>
+				<version>${revision}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.iii.esd</groupId>
+				<artifactId>esd-calculate</artifactId>
+				<version>${revision}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.iii.esd</groupId>
+				<artifactId>esd-forecast</artifactId>
+				<version>${revision}</version>
+			</dependency>									
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot</artifactId>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-log4j2</artifactId>
+			<exclusions>
+		    	<exclusion>
+		    		<groupId>org.slf4j</groupId>
+		    		<artifactId>jul-to-slf4j</artifactId>
+		    	</exclusion>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-slf4j-impl</artifactId>
+				</exclusion>		    	
+		    </exclusions>
+		</dependency>
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+
+		<!-- 辨識 log4j2.yml -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-yaml</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		</dependency>		
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		</dependency>		
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+	
+		<!-- Test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>		
+				<exclusion>
+					<groupId>com.vaadin.external.google</groupId>
+					<artifactId>android-json</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-to-slf4j</artifactId>
+				</exclusion>	
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-classic</artifactId>
+				</exclusion>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>													
+			</exclusions>
+		</dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+	</dependencies>
+
+<!--     <build>
+    </build> -->
+
+</project>

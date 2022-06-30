@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "scedule_cron",
+    "type": "java.lang.String",
+    "description": "A description for 'scedule_cron'"
+  },
+  {
+    "name": "eletricDataCollect_cron",
+    "type": "java.lang.String",
+    "description": "A description for 'eletricDataCollect_cron'"
+  },
+  {
+    "name": "globalScale",
+    "type": "java.lang.String",
+    "description": "A description for 'globalScale'"
+  }
+]}

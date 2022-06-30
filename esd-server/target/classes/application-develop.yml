@@ -1,0 +1,15 @@
+spring:
+    data:
+        mongodb:
+            host: 140.92.27.21
+            port: 38765
+            database: ESD_MQ
+            username: iii
+            password: dtiisno1!
+
+mqtt:
+    url: tcp://127.0.0.1:1883
+    clientId: esd-server-1
+    topic: notice
+    qos: 2
+    timeout: 5000

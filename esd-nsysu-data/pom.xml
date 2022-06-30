@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+	    <groupId>org.iii.esd</groupId>
+	    <artifactId>esd</artifactId>
+		<version>${revision}</version>
+	</parent>
+	<packaging>jar</packaging>
+	<artifactId>esd-nsysu-data</artifactId>
+	<name>esd-nsysu-data</name>
+	<description>
+		抓取中山大學資料當作實驗場域資料
+	</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>		
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-undertow</artifactId>
+		</dependency>
+
+        <dependency>
+            <groupId>org.springframework.batch</groupId>
+            <artifactId>spring-batch-core</artifactId>
+        </dependency>	
+		<!-- 自動產生參數的描述檔 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>		   	
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>	
+
+		<dependency>
+			<groupId>org.iii.esd</groupId>
+			<artifactId>esd-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.iii.esd</groupId>
+			<artifactId>esd-thirdparty</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.iii.esd</groupId>
+			<artifactId>esd-mongo</artifactId>
+		</dependency>			
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+<!-- 	        <plugin>
+	            <groupId>cn.joylau.code</groupId>
+	            <artifactId>joylau-springboot-daemon-windows</artifactId>
+	            <version>1.0.RELEASE</version>
+	            <executions>
+	                <execution>
+	                    <id>make-win-service</id>
+	                    <phase>package</phase>
+	                    <goals>
+	                        <goal>make-win-service</goal>
+	                    </goals>
+	                </execution>
+	            </executions>
+	        </plugin>	 -->		
+		</plugins>
+	</build>
+
+</project>

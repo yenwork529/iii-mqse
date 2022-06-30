@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      host: 140.92.24.20
+      port: 39999
+      database: ESD_T_L
+      username: iii
+      password: dtiisno1!
+
+server:
+  url: https://dmz-esd.iii.com:58001
+
+tcIp: 124.9.14.55

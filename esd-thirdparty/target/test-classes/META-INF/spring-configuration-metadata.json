@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "test",
+      "type": "org.iii.esd.thirdparty.AbstractServiceTest",
+      "sourceType": "org.iii.esd.thirdparty.AbstractServiceTest"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

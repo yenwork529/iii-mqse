@@ -1,0 +1,32 @@
+spring:
+    data:
+        mongodb:
+            # host: 140.92.170.62
+            # host: 140.92.24.20
+            host: 127.0.0.1
+            port: 39999
+            # port: 57017
+            # database: ESD_Integrate
+            database: ESD
+            # database: ESD_T_M
+            username: iii
+            password: dtiisno1!QAZ2wsx
+
+test:
+    email:
+    userId:
+    companyId: 1
+    deviceId:
+    priceId:
+    fieldId: 1
+    roleId:
+    policyId: 1
+    stationId:
+    afcId:
+    drId:
+    srId:
+
+    deviceStatisticsTime:
+    electricDataTime:
+    deviceHistoryTime:
+    spinReserveDataTime:

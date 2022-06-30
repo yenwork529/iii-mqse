@@ -1,0 +1,30 @@
+Configuration:
+  Properties: # 定義全域變數
+    Property: # 開發環境設定。其他環境在VM參數中指定如下： 
+      - name: log.level.console
+        value: INFO
+      - name: log.level.iii
+        value: INFO       
+
+  Appenders:  
+    Console:
+      name: CONSOLE
+      target: SYSTEM_OUT
+      ThresholdFilter:
+        level: ${sys:log.level.console}
+        onMatch: ACCEPT
+        onMismatch: DENY      
+      PatternLayout:
+        pattern: "%d{ABSOLUTE} %clr{%highlight{%5p}{FATAL=white, ERROR=bright red, WARN=bright yellow, INFO=bright green, DEBUG=cyan, TRACE=blue}} %clr{%style{[%t]}{bright,magenta}} %clr{%style{%c{3.}:(%M)}{bright,cyan}}:%clr{%style{%L}{bright,green}} - %m%n"
+
+  Loggers:
+    Root:
+      level: WARN
+      AppenderRef:
+        - ref: CONSOLE
+    Logger:     
+      - name: org.iii
+        additivity: false # 去除重複log
+        level: ${sys:log.level.iii}
+        AppenderRef:
+          - ref: CONSOLE       

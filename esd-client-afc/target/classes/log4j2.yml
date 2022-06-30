@@ -1,0 +1,47 @@
+Configuration:
+  Properties:
+    Property:
+      - name: log.level.console
+        value: INFO
+      - name: log.level.iii
+        value: INFO
+      - name: project.name
+        value: esd-client-afc
+
+  Appenders:
+    Console:
+      name: CONSOLE
+      target: SYSTEM_OUT
+      ThresholdFilter:
+        level: ${sys:log.level.console}
+        onMatch: ACCEPT
+        onMismatch: DENY
+      PatternLayout:
+        pattern: "%d{ABSOLUTE} %clr{%highlight{%5p}{FATAL=white, ERROR=bright red, WARN=bright yellow, INFO=bright green, DEBUG=cyan, TRACE=blue}} %clr{%style{[%t]}{bright,magenta}} %clr{%style{%c{3.}:(%M)}{bright,cyan}}:%clr{%style{%L}{bright,green}} - %m%n"
+
+    RollingFile:
+      - name: ROLLING_FILE
+        ignoreExceptions: false
+        fileName: ./logs/${project.name}.log
+        filePattern: "./logs/$${date:yyyy-MM}/${project.name} -%d{yyyy-MM-dd}-%i.log.gz"
+        PatternLayout:
+          pattern: "%d{DEFAULT} -%5p [%t] %c{1.}:(%M):%L - %m%n"
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: "30 MB"
+        DefaultRolloverStrategy:
+          max: 3
+
+  Loggers:
+    Root:
+      level: WARN
+      AppenderRef:
+        - ref: CONSOLE
+        - ref: ROLLING_FILE
+    Logger:
+      - name: org.iii
+        additivity: false
+        level: ${sys:log.level.iii}
+        AppenderRef:
+          - ref: CONSOLE
+          - ref: ROLLING_FILE

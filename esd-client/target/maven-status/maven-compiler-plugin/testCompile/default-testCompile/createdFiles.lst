@@ -1,0 +1,5 @@
+org\iii\esd\client\AbstractTest.class
+org\iii\esd\client\scheduler\ServerProcessJobTest.class
+org\iii\esd\client\service\AbstractServiceTest.class
+org\iii\esd\client\service\ClientServiceTest.class
+META-INF\spring-configuration-metadata.json

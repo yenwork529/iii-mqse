@@ -1,0 +1,13 @@
+FROM esd-java/esd-build as build-stage
+
+FROM esd-java/esd-jdk as production-stage
+
+COPY --from=build-stage /app/esd-server/target/    /app/
+COPY esd-deploy/docker/server/ /app/
+
+EXPOSE 58001
+EXPOSE 60001
+
+ENV ARTIFACT_NAME=esd-server-latest.jar
+
+CMD cd /app && java -jar $ARTIFACT_NAME

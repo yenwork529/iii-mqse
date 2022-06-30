@@ -1,0 +1,17 @@
+spring:
+    data:
+        mongodb:
+            host: ${ESD_MONGO_IP}
+            port: ${ESD_MONGO_PORT}
+            database: ${ESD_MONGO_DB}
+            username: ${ESD_MONGO_USER}
+            password: ${ESD_MONGO_PASS}
+
+# not used below, but should exist!
+testLog_cron: 30 0/5 * * * ?
+mqtt:
+    url: tcp://127.0.0.1:1883
+    clientId: esd-server-1
+    topic: notice
+    qos: 2
+    timeout: 5000

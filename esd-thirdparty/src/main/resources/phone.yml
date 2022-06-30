@@ -1,0 +1,31 @@
+### develop ###
+spring:
+  phone:
+    twilioCloud:
+      account-sid: ACc26b1ea3e172b609f302500a6bd73e1b
+      auth-token: 954d58a92e52c10a6711745a30cbdc56
+      from: '+19733079602'
+      # mode setting
+      # U: callback by locator and uri
+      # A: callback by application-sid
+      mode: A
+      locator: https://manatee-parrot-5997.twil.io
+      # (0)AO_NOTICE, (1)DO_ALERT_1, (2)DO_EVENT_1, (3)AI_SENSING, (4)DI_CONFIRM_1, (5)DI_READY_1, (6)DI_QUIT_1, (7)SYS_VM_1, (8)SYS_GW_1
+      uri: /assets/notice.mp3, /assets/alert.mp3, , , , , , /sysvm1.mp3, /sysgw1.mp3
+      application-sid: APd206dd04ebe322ba0881dab820be545f, APaf7e268fccb1641cbc233918582258bf, , , , , , AP401aad5922c67ed3a7d0f00304c7ae2e, AP621aeef5f52b569f0f0d542612b797ab
+---      
+### production ###
+#spring: 
+#  phone:
+#    twilioCloud:
+#      account-sid: AC87e535601e5b811114144ee537dacd5e
+#      auth-token: 444bd4d642308a5c89ab8648197bb9e3
+#      from: '+13342139086'      
+#      # mode setting
+#      # U: callback by locator and uri
+#      # A: callback by application-sid
+#      mode: A
+#      locator: https://stormcloud-sponge-6420.twil.io
+#      # (0)AO_NOTICE, (1)DO_ALERT_1, (2)DO_EVENT_1, (3)AI_SENSING, (4)DI_CONFIRM_1, (5)DI_READY_1, (6)DI_QUIT_1, (7)SYS_VM_1, (8)SYS_GW_1
+#      uri: /assets/notice.mp3, /assets/alert.mp3, , , , , , /sysvm1.mp3, /sysgw1.mp3
+#      application-sid: AP9ebaba7425d0626b3975d1dca08913aa, APfc113b4603851ae8671a444c69fa23cb, , , , , , AP7e754616f9217bc8050ace6b3f862da5, AP118fc24c771850d7c6a5d2a1a2203f9b

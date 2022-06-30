@@ -1,0 +1,31 @@
+server:
+  port: ${ESD_AGENT_PORT}
+  servlet:
+    context-path: /
+  ssl:
+    enabled: false
+
+spring:
+    data:
+        mongodb:
+            host: ${ESD_MONGO_IP}
+            port: ${ESD_MONGO_PORT}
+            database: ESD
+            username: iii
+            password: dtiisno1!
+
+# In properties file
+# TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF
+logging:
+  level:
+    org:
+      apache: WARN
+      springframework: WARN
+#       iii:
+#         npmon:
+#           endpoint: INFO
+
+# appender:
+#   console:
+#     layout:
+#       pattern: %m%n

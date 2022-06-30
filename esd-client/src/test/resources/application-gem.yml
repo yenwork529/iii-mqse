@@ -1,0 +1,21 @@
+spring:
+  data:
+    mongodb:
+      host: 140.92.170.57
+      port: 39999
+      database: ESD_TC
+      username: iii
+      password: dtiisno1!
+
+server:
+  url: https://140.92.27.13:58001
+
+tcIp: 127.0.0.1
+fieldIds: 14,15
+
+serverProcess_cron: 7 * * * * *
+eletricDataCollect_cron: 5 * * * * *
+globalScale: 3
+catchBuffer: 5
+delay: 0
+

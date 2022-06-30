@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "config.jandi.uri",
+  "type": "java.lang.String",
+  "description": "A description for 'config.jandi.uri'"
+}]}

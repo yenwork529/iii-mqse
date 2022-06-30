@@ -1,0 +1,139 @@
+{
+  "groups": [
+    {
+      "name": "",
+      "type": "org.iii.esd.client.afc.scheduler.TestSuitProcessJob",
+      "sourceType": "org.iii.esd.client.afc.scheduler.TestSuitProcessJob"
+    },
+    {
+      "name": "",
+      "type": "org.iii.esd.client.afc.scheduler.UploadProcessJob",
+      "sourceType": "org.iii.esd.client.afc.scheduler.UploadProcessJob"
+    },
+    {
+      "name": "afc",
+      "type": "org.iii.esd.client.afc.AFCConfig",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig"
+    },
+    {
+      "name": "afc.battery-config",
+      "type": "org.iii.esd.client.afc.AFCConfig$BatteryConfig",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig"
+    },
+    {
+      "name": "afc.battery-config.connect",
+      "type": "org.iii.esd.client.afc.AFCConfig$MudbusConnect",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig$BatteryConfig"
+    },
+    {
+      "name": "afc.meter-config",
+      "type": "org.iii.esd.client.afc.AFCConfig$MeterConfig",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig"
+    },
+    {
+      "name": "afc.meter-config.connect",
+      "type": "org.iii.esd.client.afc.AFCConfig$MudbusConnect",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig$MeterConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "afc.afc-id",
+      "type": "java.lang.Long",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig"
+    },
+    {
+      "name": "afc.battery-config.battery-k-w",
+      "type": "java.math.BigDecimal",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig$BatteryConfig"
+    },
+    {
+      "name": "afc.battery-config.brand",
+      "type": "org.iii.esd.battery.config.Brand",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig$BatteryConfig"
+    },
+    {
+      "name": "afc.battery-config.connect.ip",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig$MudbusConnect"
+    },
+    {
+      "name": "afc.battery-config.connect.port",
+      "type": "java.lang.Integer",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig$MudbusConnect",
+      "defaultValue": 0
+    },
+    {
+      "name": "afc.battery-config.connect.unit",
+      "type": "java.lang.Integer",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig$MudbusConnect",
+      "defaultValue": 0
+    },
+    {
+      "name": "afc.device-id",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig"
+    },
+    {
+      "name": "afc.meter-config.active-power-ratio",
+      "type": "java.math.BigDecimal",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig$MeterConfig"
+    },
+    {
+      "name": "afc.meter-config.connect.ip",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig$MudbusConnect"
+    },
+    {
+      "name": "afc.meter-config.connect.port",
+      "type": "java.lang.Integer",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig$MudbusConnect",
+      "defaultValue": 0
+    },
+    {
+      "name": "afc.meter-config.connect.unit",
+      "type": "java.lang.Integer",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig$MudbusConnect",
+      "defaultValue": 0
+    },
+    {
+      "name": "afc.meter-config.count",
+      "type": "java.lang.Integer",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig$MeterConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "afc.meter-config.fr-ratio",
+      "type": "java.math.BigDecimal",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig$MeterConfig"
+    },
+    {
+      "name": "afc.meter-config.k-v-a-r-ratio",
+      "type": "java.math.BigDecimal",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig$MeterConfig"
+    },
+    {
+      "name": "afc.meter-config.k-v-a-ratio",
+      "type": "java.math.BigDecimal",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig$MeterConfig"
+    },
+    {
+      "name": "afc.meter-config.pin",
+      "type": "java.lang.Integer",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig$MeterConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "afc.meter-config.power-factor-ratio",
+      "type": "java.math.BigDecimal",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig$MeterConfig"
+    },
+    {
+      "name": "afc.scale",
+      "type": "java.lang.Integer",
+      "sourceType": "org.iii.esd.client.afc.AFCConfig",
+      "defaultValue": 0
+    }
+  ],
+  "hints": []
+}

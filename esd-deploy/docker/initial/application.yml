@@ -1,0 +1,37 @@
+logging:
+  config: classpath:logback-spring.xml
+
+spring:
+  profiles:
+    active: ${ENV}
+
+data:
+  name: 資策會
+  qseCode: 5076416
+  txgCode: 2
+  serviceType: 4
+  dnpUrl: http://esd-dnp3:8585
+  callbackUrl: http://esd-dnp3:8585
+  sr:
+    bidContractCapacity: 5000
+    clipKw: 5000
+    tcIp: esd-client
+  resources:
+    - resCode: 14
+      srIndex: 0
+      deviceId: II10III---------M1
+      ct: 1
+      pt: 1
+      tyod: 0
+      tyodc: 0
+      trhd: 0
+      oyod: 0
+    - resCode: 15
+      srIndex: 1
+      deviceId: II10III---------M2
+      ct: 1
+      pt: 1
+      tyod: 0
+      tyodc: 0
+      trhd: 0
+      oyod: 0

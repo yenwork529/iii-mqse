@@ -1,0 +1,38 @@
+config:
+  jandi:
+    url: https://wh.jandi.com/connect-api/webhook/
+  weatherBureau:
+    url: https://opendata.cwb.gov.tw/api/v1/rest/datastore/
+    token: CWB-973DBD86-AE7F-4B31-A93B-487CE21DD7A9
+    measure: # 局屬氣象站-現在天氣觀測報告
+      qparam: O-A0003-001?Authorization={0}&stationId={1}&elementName={2}
+      elements: 
+        - TEMP  # 溫度
+        - HUMD  # 濕度
+        - H_UVI # 紫外線
+    forecast: # 鄉鎮天氣預報-全臺灣各鄉鎮市區預報資料
+      qparam: F-D0047-093?Authorization={0}&locationId={1}&locationName={2}&elementName={3}&timeTo={4}
+      elements:        
+        - T  # 溫度
+        - RH  # 濕度
+        
+  soda:
+    urlSession: http://www.soda-pro.com/web-services/meteo-data/gfs-forecasts
+    url: http://www.soda-pro.com/portlets-common/cgi-bin/proxy.py?url=
+    actually: http://www.soda-is.com/com/merra2.php?latlon=%s&date1=%s&date2=%s&summar=h&outcsv=1
+    forecast: http://www.soda-is.com/com/gfs_forecast.php?latlon=%s&date1=%s&date2=%s&summar=h&outcsv=1
+
+  station:
+#    466900: 23.976936,121.605138 # 花蓮
+    466920: 25.039410,121.506676 # 臺北
+    466990: 25.166689,121.440690 # 淡水
+    467050: 25.008503,121.039267 # 新屋
+    467440: 22.567733,120.307664 # 高雄
+    467490: 24.147495,120.675914 # 臺中
+    
+  location:
+    F-D0047-005: 新屋區|467050
+    F-D0047-061: 松山區|466920
+    F-D0047-065: 鼓山區|467440
+    F-D0047-069: 淡水區|466990
+    F-D0047-073: 中區|467490

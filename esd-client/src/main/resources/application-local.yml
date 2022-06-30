@@ -1,0 +1,19 @@
+server:
+    port: 8088
+    servlet:
+        context-path: /
+spring:
+    data:
+        mongodb:
+            host: 127.0.0.1
+            port: 27017
+            database: ESD_TC
+            username: iii
+            password: dtiisno1!
+
+# default ThinClient 
+tcIp: 127.0.0.1
+
+cloudUrl: http://140.92.24.79:58001
+
+metaId: RES-000001-01

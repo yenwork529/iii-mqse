@@ -1,0 +1,51 @@
+server:
+  port: ${ESD_TAFC_PORT}
+  servlet:
+    context-path: /
+
+spring:
+  profiles:
+    active: ${ESD_ENV}
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  devtools:
+    livereload:
+      port: 58515  
+
+#  cache:
+#    cache-names: caffeine
+#    caffeine: 
+#      spec: initialCapacity=50,maximumSize=500,expireAfterWrite=5s,refreshAfterWrite=7s
+#    type: caffeine      
+
+logging:
+  config: classpath:log4j2.yml
+
+# normal  
+#control: control
+#testSuitList: 
+#essSimulate: true / false
+#readModbus: true 
+#batteryControl: true / false
+#initSoc: 
+
+# testSuit 1~3 
+#control: test
+#testSuitList: t2_1, t2_2
+#essSimulate: true / false 
+#readModbus: false
+#batteryControl: true / false
+#initSoc: 50
+
+# testSuit 4
+#control: test
+#testSuitList: t4_1
+#essSimulate: true / false
+#readModbus: true
+#batteryControl: true / false
+#initSoc: 50
+

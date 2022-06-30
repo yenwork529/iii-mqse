@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+	    <groupId>org.iii.esd</groupId>
+	    <artifactId>esd</artifactId>
+		<version>${revision}</version>
+	</parent>
+	<packaging>jar</packaging>
+	<artifactId>esd-modbus</artifactId>
+	<name>esd-modbus</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.iii.esd</groupId>
+			<artifactId>esd-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.ghgande</groupId>
+			<artifactId>j2mod</artifactId>
+			<version>2.5.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fazecast</groupId>
+			<artifactId>jSerialComm</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>execjar</id>
+			<properties>
+				<maven.test.skip>true</maven.test.skip>
+			</properties>
+			<build>
+				<resources>
+					<resource>
+						<directory>..\esd-common\target\</directory>
+						<targetPath>/BOOT-INF/lib</targetPath>
+						<includes>
+							<include>**/*.jar</include>
+						</includes>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+	</profiles>	
+
+</project>

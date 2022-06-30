@@ -1,0 +1,5 @@
+FROM adoptopenjdk:15-jre-hotspot-focal
+
+RUN apt update && \
+    apt upgrade -y && \
+    apt install -y cron

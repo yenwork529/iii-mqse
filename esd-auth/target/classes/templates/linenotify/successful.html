@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org">   
+    <head>
+        <title>Successful</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+		<div th:if="${isbind}">
+			<span th:text="${message}"></span><br>
+			token:<span th:text="${token}"></span><br>
+        </div>
+		<div th:unless="${isbind}">帳號綁定失敗</div> 
+		<button th:attr="onclick='javascript:location.href=\''+ @{/line/linenotify}+ '\''" >再次綁定帳號</button>
+    </body>
+</html>

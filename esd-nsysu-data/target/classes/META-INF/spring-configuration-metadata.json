@@ -1,0 +1,135 @@
+{
+  "groups": [
+    {
+      "name": "config",
+      "type": "org.iii.esd.nsysudata.AppConfig",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig"
+    },
+    {
+      "name": "config.jandi",
+      "type": "org.iii.esd.nsysudata.AppConfig$Jandi",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig"
+    },
+    {
+      "name": "config.main-load",
+      "type": "org.iii.esd.nsysudata.AppConfig$Device",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig"
+    },
+    {
+      "name": "config.solar-load",
+      "type": "org.iii.esd.nsysudata.AppConfig$Device",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig"
+    },
+    {
+      "name": "config.solar-setup-data",
+      "type": "org.iii.esd.nsysudata.AppConfig$SolarSetupData",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "config.field-id",
+      "type": "java.lang.Long",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig"
+    },
+    {
+      "name": "config.jandi.app-name",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig$Jandi"
+    },
+    {
+      "name": "config.jandi.color",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig$Jandi"
+    },
+    {
+      "name": "config.jandi.description",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig$Jandi"
+    },
+    {
+      "name": "config.jandi.title",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig$Jandi"
+    },
+    {
+      "name": "config.jandi.uri",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig$Jandi"
+    },
+    {
+      "name": "config.main-load.channel",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig$Device"
+    },
+    {
+      "name": "config.main-load.feed",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig$Device"
+    },
+    {
+      "name": "config.main-load.id",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig$Device"
+    },
+    {
+      "name": "config.main-load.load-type",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig$Device"
+    },
+    {
+      "name": "config.main-load.name",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig$Device"
+    },
+    {
+      "name": "config.solar-load.channel",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig$Device"
+    },
+    {
+      "name": "config.solar-load.feed",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig$Device"
+    },
+    {
+      "name": "config.solar-load.id",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig$Device"
+    },
+    {
+      "name": "config.solar-load.load-type",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig$Device"
+    },
+    {
+      "name": "config.solar-load.name",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig$Device"
+    },
+    {
+      "name": "config.solar-setup-data.maintenance-cost",
+      "type": "java.math.BigDecimal",
+      "description": "維護費用(%)",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig$SolarSetupData"
+    },
+    {
+      "name": "config.solar-setup-data.pv-capacity",
+      "type": "java.lang.Integer",
+      "description": "PV發電容量(kWp)",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig$SolarSetupData"
+    },
+    {
+      "name": "config.solar-setup-data.unit-cost",
+      "type": "java.lang.Integer",
+      "description": "單位採購成本($\/kWp)",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig$SolarSetupData"
+    },
+    {
+      "name": "config.url",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.nsysudata.AppConfig"
+    }
+  ],
+  "hints": []
+}

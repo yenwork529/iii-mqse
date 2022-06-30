@@ -1,0 +1,51 @@
+spring:
+  data:
+    mongodb:
+      host: 140.92.170.57
+      port: 39999
+      database: ESD_Test
+      username: iii
+      password: dtiisno1!
+
+data:
+  items:
+    - companyId: 1
+      name: 資策會
+      qseCode: 5076416
+      txgCode: 3
+      serviceType: 4
+      dnpUrl: http://iii-dnp3:8585
+      callbackUrl: http://iii-dnp3:8585
+      afc:
+        name: 資策會
+  users:
+    - email: admin@iii.org.tw
+      name: 系統管理者
+      password: dtiisno1!
+      companyId: 1
+      afcId: 1
+      roleId: 1
+    - email: qse@iii.org.tw
+      name: QSE管理者
+      password: dtiisno1!
+      companyId: 1
+      afcId: 1
+      roleId: 6
+    - email: txg@iii.org.tw
+      name: TXG管理者
+      password: dtiisno1!
+      companyId: 1
+      afcId: 1
+      roleId: 2
+    - email: res14@iii.org.tw
+      name: RES-14管理者
+      password: dtiisno1!
+      companyId: 1
+      afcId: 1
+      roleId: 4
+    - email: res15@iii.org.tw
+      name: RES-15管理者
+      password: dtiisno1!
+      companyId: 1
+      afcId: 2
+      roleId: 4

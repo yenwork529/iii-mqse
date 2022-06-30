@@ -1,0 +1,351 @@
+{
+  "groups": [
+    {
+      "name": "config",
+      "type": "org.iii.esd.thirdparty.config.Config",
+      "sourceType": "org.iii.esd.thirdparty.config.Config"
+    },
+    {
+      "name": "config.jandi",
+      "type": "org.iii.esd.thirdparty.config.Config$Jandi",
+      "sourceType": "org.iii.esd.thirdparty.config.Config"
+    },
+    {
+      "name": "config.soda",
+      "type": "org.iii.esd.thirdparty.config.Config$Soda",
+      "sourceType": "org.iii.esd.thirdparty.config.Config"
+    },
+    {
+      "name": "config.weather-bureau",
+      "type": "org.iii.esd.thirdparty.config.Config$WeatherBureau",
+      "sourceType": "org.iii.esd.thirdparty.config.Config"
+    },
+    {
+      "name": "config.weather-bureau.forecast",
+      "type": "org.iii.esd.thirdparty.config.Config$Param",
+      "sourceType": "org.iii.esd.thirdparty.config.Config$WeatherBureau"
+    },
+    {
+      "name": "config.weather-bureau.measure",
+      "type": "org.iii.esd.thirdparty.config.Config$Param",
+      "sourceType": "org.iii.esd.thirdparty.config.Config$WeatherBureau"
+    },
+    {
+      "name": "notify",
+      "type": "org.iii.esd.thirdparty.config.NotifyConfig",
+      "sourceType": "org.iii.esd.thirdparty.config.NotifyConfig"
+    },
+    {
+      "name": "notify.line",
+      "type": "org.iii.esd.thirdparty.config.NotifyConfig$Line",
+      "sourceType": "org.iii.esd.thirdparty.config.NotifyConfig"
+    },
+    {
+      "name": "notify.specific",
+      "type": "org.iii.esd.thirdparty.config.NotifyConfig$Specific",
+      "sourceType": "org.iii.esd.thirdparty.config.NotifyConfig"
+    },
+    {
+      "name": "spring.mail",
+      "type": "org.iii.esd.thirdparty.config.MailConfig",
+      "sourceType": "org.iii.esd.thirdparty.config.MailConfig"
+    },
+    {
+      "name": "spring.phone",
+      "type": "org.iii.esd.thirdparty.config.PhoneConfig",
+      "sourceType": "org.iii.esd.thirdparty.config.PhoneConfig"
+    },
+    {
+      "name": "spring.phone.twilio-cloud",
+      "type": "org.iii.esd.thirdparty.config.PhoneConfig$TwilioCloud",
+      "sourceType": "org.iii.esd.thirdparty.config.PhoneConfig"
+    },
+    {
+      "name": "suits",
+      "type": "org.iii.esd.thirdparty.config.TestSuits",
+      "sourceType": "org.iii.esd.thirdparty.config.TestSuits"
+    },
+    {
+      "name": "suits.suit",
+      "type": "org.iii.esd.thirdparty.config.TestSuits$Suits",
+      "sourceType": "org.iii.esd.thirdparty.config.TestSuits"
+    },
+    {
+      "name": "suits.suit.t1-1",
+      "type": "org.iii.esd.thirdparty.config.TestSuits$TestSuit",
+      "sourceType": "org.iii.esd.thirdparty.config.TestSuits$Suits"
+    },
+    {
+      "name": "suits.suit.t2-1",
+      "type": "org.iii.esd.thirdparty.config.TestSuits$TestSuit",
+      "sourceType": "org.iii.esd.thirdparty.config.TestSuits$Suits"
+    },
+    {
+      "name": "suits.suit.t2-2",
+      "type": "org.iii.esd.thirdparty.config.TestSuits$TestSuit",
+      "sourceType": "org.iii.esd.thirdparty.config.TestSuits$Suits"
+    },
+    {
+      "name": "suits.suit.t3-1",
+      "type": "org.iii.esd.thirdparty.config.TestSuits$TestSuit",
+      "sourceType": "org.iii.esd.thirdparty.config.TestSuits$Suits"
+    },
+    {
+      "name": "suits.suit.t3-2",
+      "type": "org.iii.esd.thirdparty.config.TestSuits$TestSuit",
+      "sourceType": "org.iii.esd.thirdparty.config.TestSuits$Suits"
+    },
+    {
+      "name": "suits.suit.t3-3",
+      "type": "org.iii.esd.thirdparty.config.TestSuits$TestSuit",
+      "sourceType": "org.iii.esd.thirdparty.config.TestSuits$Suits"
+    },
+    {
+      "name": "suits.suit.t4-1",
+      "type": "org.iii.esd.thirdparty.config.TestSuits$TestSuit",
+      "sourceType": "org.iii.esd.thirdparty.config.TestSuits$Suits"
+    }
+  ],
+  "properties": [
+    {
+      "name": "config.jandi.url",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.Config$Jandi"
+    },
+    {
+      "name": "config.location",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "org.iii.esd.thirdparty.config.Config"
+    },
+    {
+      "name": "config.soda.actually",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.Config$Soda"
+    },
+    {
+      "name": "config.soda.forecast",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.Config$Soda"
+    },
+    {
+      "name": "config.soda.url",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.Config$Soda"
+    },
+    {
+      "name": "config.soda.url-session",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.Config$Soda"
+    },
+    {
+      "name": "config.station",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "org.iii.esd.thirdparty.config.Config"
+    },
+    {
+      "name": "config.weather-bureau.forecast.dataid",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.Config$Param"
+    },
+    {
+      "name": "config.weather-bureau.forecast.elements",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "org.iii.esd.thirdparty.config.Config$Param"
+    },
+    {
+      "name": "config.weather-bureau.forecast.qparam",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.Config$Param"
+    },
+    {
+      "name": "config.weather-bureau.measure.dataid",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.Config$Param"
+    },
+    {
+      "name": "config.weather-bureau.measure.elements",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "org.iii.esd.thirdparty.config.Config$Param"
+    },
+    {
+      "name": "config.weather-bureau.measure.qparam",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.Config$Param"
+    },
+    {
+      "name": "config.weather-bureau.token",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.Config$WeatherBureau"
+    },
+    {
+      "name": "config.weather-bureau.url",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.Config$WeatherBureau"
+    },
+    {
+      "name": "notify.emails",
+      "type": "java.lang.String[]",
+      "sourceType": "org.iii.esd.thirdparty.config.NotifyConfig"
+    },
+    {
+      "name": "notify.line.client-id",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.NotifyConfig$Line"
+    },
+    {
+      "name": "notify.line.client-secret",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.NotifyConfig$Line"
+    },
+    {
+      "name": "notify.line.token",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.NotifyConfig$Line"
+    },
+    {
+      "name": "notify.phones",
+      "type": "java.lang.String[]",
+      "sourceType": "org.iii.esd.thirdparty.config.NotifyConfig"
+    },
+    {
+      "name": "notify.specific.ms",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.NotifyConfig$Specific"
+    },
+    {
+      "name": "notify.specific.rm",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.NotifyConfig$Specific"
+    },
+    {
+      "name": "notify.specific.sw",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.NotifyConfig$Specific"
+    },
+    {
+      "name": "spring.mail.default-encoding",
+      "type": "java.nio.charset.Charset",
+      "description": "Default MimeMessage encoding.",
+      "sourceType": "org.iii.esd.thirdparty.config.MailConfig",
+      "defaultValue": "UTF-8"
+    },
+    {
+      "name": "spring.mail.host",
+      "type": "java.lang.String",
+      "description": "SMTP server host. For instance, `smtp.example.com`.",
+      "sourceType": "org.iii.esd.thirdparty.config.MailConfig"
+    },
+    {
+      "name": "spring.mail.password",
+      "type": "java.lang.String",
+      "description": "Login password of the SMTP server.",
+      "sourceType": "org.iii.esd.thirdparty.config.MailConfig"
+    },
+    {
+      "name": "spring.mail.password2",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.MailConfig"
+    },
+    {
+      "name": "spring.mail.port",
+      "type": "java.lang.Integer",
+      "description": "SMTP server port.",
+      "sourceType": "org.iii.esd.thirdparty.config.MailConfig"
+    },
+    {
+      "name": "spring.mail.properties",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "description": "Additional JavaMail Session properties.",
+      "sourceType": "org.iii.esd.thirdparty.config.MailConfig"
+    },
+    {
+      "name": "spring.mail.protocol",
+      "type": "java.lang.String",
+      "description": "Protocol used by the SMTP server.",
+      "sourceType": "org.iii.esd.thirdparty.config.MailConfig",
+      "defaultValue": "smtp"
+    },
+    {
+      "name": "spring.mail.username",
+      "type": "java.lang.String",
+      "description": "Login user of the SMTP server.",
+      "sourceType": "org.iii.esd.thirdparty.config.MailConfig"
+    },
+    {
+      "name": "spring.mail.username2",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.MailConfig"
+    },
+    {
+      "name": "spring.phone.twilio-cloud.account-sid",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.PhoneConfig$TwilioCloud"
+    },
+    {
+      "name": "spring.phone.twilio-cloud.application-sid",
+      "type": "java.lang.String[]",
+      "sourceType": "org.iii.esd.thirdparty.config.PhoneConfig$TwilioCloud"
+    },
+    {
+      "name": "spring.phone.twilio-cloud.auth-token",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.PhoneConfig$TwilioCloud"
+    },
+    {
+      "name": "spring.phone.twilio-cloud.from",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.PhoneConfig$TwilioCloud"
+    },
+    {
+      "name": "spring.phone.twilio-cloud.locator",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.PhoneConfig$TwilioCloud"
+    },
+    {
+      "name": "spring.phone.twilio-cloud.mode",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.thirdparty.config.PhoneConfig$TwilioCloud"
+    },
+    {
+      "name": "spring.phone.twilio-cloud.uri",
+      "type": "java.lang.String[]",
+      "sourceType": "org.iii.esd.thirdparty.config.PhoneConfig$TwilioCloud"
+    },
+    {
+      "name": "suits.suit.t1-1.frequencies",
+      "type": "java.util.List<java.math.BigDecimal>",
+      "sourceType": "org.iii.esd.thirdparty.config.TestSuits$TestSuit"
+    },
+    {
+      "name": "suits.suit.t2-1.frequencies",
+      "type": "java.util.List<java.math.BigDecimal>",
+      "sourceType": "org.iii.esd.thirdparty.config.TestSuits$TestSuit"
+    },
+    {
+      "name": "suits.suit.t2-2.frequencies",
+      "type": "java.util.List<java.math.BigDecimal>",
+      "sourceType": "org.iii.esd.thirdparty.config.TestSuits$TestSuit"
+    },
+    {
+      "name": "suits.suit.t3-1.frequencies",
+      "type": "java.util.List<java.math.BigDecimal>",
+      "sourceType": "org.iii.esd.thirdparty.config.TestSuits$TestSuit"
+    },
+    {
+      "name": "suits.suit.t3-2.frequencies",
+      "type": "java.util.List<java.math.BigDecimal>",
+      "sourceType": "org.iii.esd.thirdparty.config.TestSuits$TestSuit"
+    },
+    {
+      "name": "suits.suit.t3-3.frequencies",
+      "type": "java.util.List<java.math.BigDecimal>",
+      "sourceType": "org.iii.esd.thirdparty.config.TestSuits$TestSuit"
+    },
+    {
+      "name": "suits.suit.t4-1.frequencies",
+      "type": "java.util.List<java.math.BigDecimal>",
+      "sourceType": "org.iii.esd.thirdparty.config.TestSuits$TestSuit"
+    }
+  ],
+  "hints": []
+}

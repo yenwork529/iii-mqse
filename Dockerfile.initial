@@ -1,0 +1,10 @@
+FROM esd-java/esd-build as build-stage
+
+FROM esd-java/esd-jdk as production-stage
+
+COPY --from=build-stage /app/esd-initial/target/    /app/
+COPY esd-deploy/docker/initial/ /app/
+
+ENV ARTIFACT_NAME=esd-initial-latest.jar
+
+CMD cd /app && ./run.sh

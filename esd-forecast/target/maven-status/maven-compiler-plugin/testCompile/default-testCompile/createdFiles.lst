@@ -1,0 +1,5 @@
+org\iii\esd\forecast\load\LoadForecastServiceTest.class
+org\iii\esd\forecast\ForecastRelativeServiceTest.class
+META-INF\spring-configuration-metadata.json
+org\iii\esd\forecast\FieldForecastServiceTest.class
+org\iii\esd\forecast\pv\PvForecastServiceTest.class

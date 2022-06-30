@@ -1,0 +1,16 @@
+FROM esd-java/esd-jdk as production-stage
+
+ARG NAME
+ARG MODULE
+ARG PORT
+ARG MONITOR
+
+COPY ./${MODULE}/target/    /app/
+COPY esd-deploy/docker/${NAME}/ /app/
+
+EXPOSE ${PORT}
+EXPOSE ${MONITOR}
+
+ENV ARTIFACT_NAME=${MODULE}-latest.jar
+
+CMD cd /app && java -jar $ARTIFACT_NAME

@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "test",
+      "type": "org.iii.esd.server.AbstractTest",
+      "sourceType": "org.iii.esd.server.AbstractTest"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

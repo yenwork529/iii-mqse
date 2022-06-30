@@ -1,0 +1,13 @@
+FROM esd-java/esd-build as build-stage
+
+FROM esd-java/esd-jdk as production-stage
+
+COPY --from=build-stage /app/esd-client/target/    /app/
+COPY esd-deploy/docker/client/ /app/
+
+EXPOSE 8012
+EXPOSE 60002
+
+ENV ARTIFACT_NAME=esd-client-latest.jar
+
+CMD cd /app && java -jar $ARTIFACT_NAME

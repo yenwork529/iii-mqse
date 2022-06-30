@@ -1,0 +1,72 @@
+spring:
+    profiles:
+        active: docker
+        # active: integrate
+        # active: multiqse
+        # active: local
+        # active: develop
+
+logging:
+    config: classpath:log4j2.yml
+
+testLog_cron: 0/20 * * * * ?
+remoteSensing_cron: 0 0 0 1 1 ?
+checkDisconnect_cron: 0 0 0 1 1 ?
+
+spinReserveStatistics_cron: 0 0 0 1 1 ?
+dailyElectricDataReport_cron: 0 0 0 1 1 ?
+actuallyDataCollect_cron: 0 0 0 1 1 ?
+forecastDataCollect_cron: 0 0 0 1 1 ?
+
+recalculateAFC_spm_cron: 0 0/15 * * * ?
+recalculateAFC_aspm_cron: 0 5 1 * * ?
+
+remoteSensing:
+
+soda_file:
+
+permit: /
+
+phoneNotify: false
+
+temp_folder: c:/temp
+
+backend_url: http://localhost:58001
+
+env:
+    prefix: dev
+
+disconnect: 0
+
+afc:
+    sbspm:
+        A:
+            freq: 59.50
+            normalPower: 100.00
+            highPower: 100.00
+            lowPower: 100.00
+        B:
+            freq: 59.75
+            normalPower: 48.00
+            highPower: 48.00
+            lowPower: 48.00
+        C:
+            freq: 59.98
+            normalPower: 0.00
+            highPower: 9.00
+            lowPower: -9.00
+        D:
+            freq: 60.02
+            normalPower: 0.00
+            highPower: 9.00
+            lowPower: -9.00
+        E:
+            freq: 60.25
+            normalPower: -48.00
+            highPower: -48.00
+            lowPower: -48.00
+        F:
+            freq: 60.50
+            normalPower: -100.00
+            highPower: -100.00
+            lowPower: -100.00

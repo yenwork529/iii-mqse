@@ -1,0 +1,17 @@
+﻿<service>
+	<id>esd-thinclient</id>
+	<name>esd-thinclient</name>
+	<description>智慧調度系統 ESD ThinClient</description>
+	<env name="JAVA_HOME" value="%JAVA_HOME%"/>
+	<executable>java</executable>
+	<arguments>-jar "esd-client-latest.jar"</arguments>
+	<startmode>Automatic</startmode>
+	<logpath>%BASE%\winswlog</logpath>
+	<logmode>rotate</logmode>
+	<env name="ESD_ENV" value="dev" />
+	<env name="ESD_MONGO_IP" value="140.92.24.79" />
+	<env name="ESD_MONGO_PORT" value="27017" />
+	<env name="ESD_SILO_MODE" value="integrated" />
+	<env name="ESD_TC_PORT" value="8088" />
+	<env name="ESD_AGENT_URL" value="http://140.92.24.79:8060" />
+</service>

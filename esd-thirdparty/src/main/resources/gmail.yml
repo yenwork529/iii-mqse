@@ -1,0 +1,17 @@
+spring:
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    port: 587
+    username: datacustodianiii@gmail.com
+    password: dtiisno1!
+    username2: sodhomeiii@gmail.com
+    password2: dtiisno1!
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+        from: Energy Management Service System <noreply@iii.org.tw>

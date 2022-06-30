@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<project
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.iii.esd</groupId>
+        <artifactId>esd</artifactId>
+        <version>${revision}</version>
+    </parent>
+    <packaging>jar</packaging>
+    <artifactId>esd-common-api</artifactId>
+    <name>esd-common-api</name>
+    <description>
+        主要提供esd-client，esd-server和esd-auth模組API相關物件
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.iii.esd</groupId>
+            <artifactId>esd-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.iii.esd</groupId>
+            <artifactId>esd-mongo</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.iii.dnp3</groupId>
+            <artifactId>api-spec</artifactId>
+            <version>1.4.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>3.0.1</version>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
+</project>

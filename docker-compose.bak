@@ -1,0 +1,52 @@
+version: "3"
+services:
+    mongo-esd:
+        image: mongo
+        restart: always
+        ports:
+            - 27017:27017
+        volumes:
+            - mongodata:/data/db
+            - /etc/localtime:/etc/localtime
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: iii
+            MONGO_INITDB_ROOT_PASSWORD: dtiisno1!
+
+    esd-server:
+        image: esd-java/esd-server
+        restart: always
+        depends_on:
+            - mongo-esd
+        volumes:
+            - /etc/localtime:/etc/localtime
+        ports:
+            - 58001:58001
+            - 60001:60001
+    esd-auth:
+        image: esd-java/esd-auth
+        restart: always
+        depends_on:
+            - mongo-esd
+        volumes:
+            - /etc/localtime:/etc/localtime
+        ports:
+            - 57000:57000
+            - 60010:60010
+    esd-client:
+        image: esd-java/esd-client
+        restart: always
+        depends_on:
+            - mongo-esd
+        volumes:
+            - /etc/localtime:/etc/localtime
+        ports:
+            - 8012:8012
+            - 60002:60002
+
+volumes:
+    mongodata: { }
+
+networks:
+    default:
+        external:
+            name: esd-javas

@@ -1,0 +1,21 @@
+logging:
+  config: classpath:log4j2.yml
+
+test:
+  jandi.uri: 11229883/1cf22bf62b716776e9b87715eabe6e31
+ 
+spring:
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    port: 587
+    username: datacustodianiii@gmail.com
+    password: jindcbbuzunziqug
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+        from: Energy Management System <noreply@iii.org.tw>

@@ -1,0 +1,8 @@
+config:
+  monitor:
+    #    SERVER: dti-esd.iii.com
+    #    THINCLIENT: dti-esd.iii.com
+    #    DNP: dti-esd.iii.com
+    #    AUTH: dti-esd.iii.com
+    #    MONITOR_A: dti-esd.iii.com
+    MONITOR_B: dev-esd.iii.com

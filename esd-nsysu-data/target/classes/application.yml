@@ -1,0 +1,45 @@
+server:
+  port: 58020
+  servlet:
+    context-path: /
+
+spring:
+  profiles:
+#    active: local
+#    active: local_tc
+    active: develop
+  devtools:
+    livereload:
+      port: 58520    
+
+logging:
+  config: classpath:log4j2.yml
+  
+config:
+  fieldId: 1
+  solarSetupData:
+    pvCapacity: 167
+    unitCost: 51600
+    maintenanceCost: 2.34  
+  url: http://140.117.102.23:8080/
+  solarLoad:
+    id: II10NSYSU---------M2
+    name: 開發環境PV設備
+    loadType: 2
+    feed: 582ac2296b300556a232f7e1
+    channel: 582ac2476b300556a232f872
+  mainLoad:
+    id: II10NSYSU---------M1
+    name: 開發環境實際負載
+    loadType: 1
+    feed: 546aab581a6e97043ca9d6e3
+    channel: 546aab581a6e97043ca9d6e4
+  jandi:
+    uri: 11229883/03ceef3f312800f48489f7be6a4b3455
+    app-name: NSYSU MD 斷線通知
+    color: '#FAC11B'
+    title: 【WARN】url {0} is disconnected
+    description: 'id:{0} insert failed at {1}'
+
+    
+    

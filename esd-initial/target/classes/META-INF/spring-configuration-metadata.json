@@ -1,0 +1,27 @@
+{
+  "groups": [
+    {
+      "name": "data",
+      "type": "org.iii.esd.config.DataConfiguration",
+      "sourceType": "org.iii.esd.config.DataConfiguration"
+    }
+  ],
+  "properties": [
+    {
+      "name": "data.company-list",
+      "type": "java.util.List<org.iii.esd.config.DataConfiguration$CompanyItem>",
+      "sourceType": "org.iii.esd.config.DataConfiguration"
+    },
+    {
+      "name": "data.qse-list",
+      "type": "java.util.List<org.iii.esd.config.DataConfiguration$QseItem>",
+      "sourceType": "org.iii.esd.config.DataConfiguration"
+    },
+    {
+      "name": "data.user-list",
+      "type": "java.util.List<org.iii.esd.config.DataConfiguration$UserItem>",
+      "sourceType": "org.iii.esd.config.DataConfiguration"
+    }
+  ],
+  "hints": []
+}

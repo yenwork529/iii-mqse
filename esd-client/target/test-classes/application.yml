@@ -1,0 +1,14 @@
+spring:
+  profiles:
+#    active: local
+#    active: develop
+    active: gem
+
+logging:
+  config: classpath:log4j2.yml
+  
+serverProcess_cron: 10 * * * * *
+
+eletricDataCollect_cron: 5 * * * * *
+
+globalScale: 3

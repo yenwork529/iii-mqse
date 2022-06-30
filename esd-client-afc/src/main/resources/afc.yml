@@ -1,0 +1,27 @@
+afc:
+  afcId: 1
+  deviceId: AC15TKU-----------M3
+  meterConfig:
+    connect:
+      ip: 192.168.1.3
+      port: 502
+      unit: 1
+    pin: 12288
+    count: 60
+    frRatio: 1
+    activePowerRatio: 0.001
+    kVARRatio: 0.001
+    kVARatio: 0.001
+    powerFactorRatio: 1    
+#    ct1: 200
+#    ct2: 100
+#    pt1: 400
+#    pt2: 400      
+  batteryConfig:
+    connect:
+      ip: 192.168.1.4
+      port: 502
+      unit: 1
+    brand: SUNGROW
+    batteryKW: 25
+  scale: 3

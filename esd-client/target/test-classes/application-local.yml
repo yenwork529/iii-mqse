@@ -1,0 +1,14 @@
+spring:
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      database: ESDT
+      username: iii
+      password: snsiisno1!
+
+server:
+  url: http://lc-esd.iii.com:8000
+  
+tcIp: 127.0.0.1
+fieldIds: 1

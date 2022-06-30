@@ -1,0 +1,20 @@
+notify:
+  line:
+    clientId: 86edUKM8zg9zIVnAeLmnLi
+    clientSecret: xVQndpJimx7BCX0BwgiMgZJcRSmSiILx4zW6xAQmIDa
+    token: 9Gn2oQzGmmhIx3hupf5To16W35EEoifFmeF8dF9EnEF
+  emails: 
+    - datacustodianiii@gmail.com
+    - gemhuang@iii.org.tw
+    - willhahn@iii.org.tw
+    - raymond@iii.org.tw
+    - minsiong@iii.org.tw
+    - swluan@iii.org.tw
+    - hylinker07@gmail.com
+  phones: 
+    - +886979291856
+    - +886910568906
+  specific:
+    rm: raymond@iii.org.tw
+    ms: minsiong@iii.org.tw 
+    sw: sunwin56@gmail.com

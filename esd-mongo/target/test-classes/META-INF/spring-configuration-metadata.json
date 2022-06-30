@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "test",
+      "type": "org.iii.esd.mongo.service.AbstractServiceTest",
+      "sourceType": "org.iii.esd.mongo.service.AbstractServiceTest"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

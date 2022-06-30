@@ -1,0 +1,27 @@
+spring:
+    data:
+        mongodb:
+            host: 124.9.14.55
+            port: 39999
+            database: ESD
+            username: iii
+            password: dtiisno1!
+
+test:
+    email: admin@iii.org.tw
+    userId: 2
+    companyId: 1
+    deviceId: II10NSYSU---------M1
+    priceId:
+    fieldId: 1
+    roleId:
+    policyId: 1
+    stationId: 467440
+    afcId: 1
+    drId: 1
+    srId: 1
+
+    deviceStatisticsTime: 20191010 00:00:00,20191010 10:00:00
+    electricDataTime: 20191001 00:00:00,20191001 10:00:00
+    deviceHistoryTime: 20191120 00:00:00,20191120 01:00:00
+    spinReserveDataTime: 20200219 00:00:00,20200220 00:00:00

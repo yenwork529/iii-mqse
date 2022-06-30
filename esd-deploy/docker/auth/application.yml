@@ -1,0 +1,11 @@
+server:
+  port: 57000
+  ssl:
+    enabled: false
+  servlet:
+    context-path: /
+
+spring:
+  profiles:
+    active: docker
+

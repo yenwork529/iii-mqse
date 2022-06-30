@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "test",
+      "type": "org.iii.esd.caculate.AbstractServiceTest",
+      "sourceType": "org.iii.esd.caculate.AbstractServiceTest"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

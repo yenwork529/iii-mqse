@@ -1,0 +1,26 @@
+{
+  "groups": [
+    {
+      "name": "test",
+      "type": "org.iii.esd.forecast.FieldForecastServiceTest",
+      "sourceType": "org.iii.esd.forecast.FieldForecastServiceTest"
+    },
+    {
+      "name": "test",
+      "type": "org.iii.esd.forecast.ForecastRelativeServiceTest",
+      "sourceType": "org.iii.esd.forecast.ForecastRelativeServiceTest"
+    },
+    {
+      "name": "test",
+      "type": "org.iii.esd.forecast.load.LoadForecastServiceTest",
+      "sourceType": "org.iii.esd.forecast.load.LoadForecastServiceTest"
+    },
+    {
+      "name": "test",
+      "type": "org.iii.esd.forecast.pv.PvForecastServiceTest",
+      "sourceType": "org.iii.esd.forecast.pv.PvForecastServiceTest"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

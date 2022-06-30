@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "name": "line",
+      "type": "org.iii.esd.auth.LineConfig",
+      "sourceType": "org.iii.esd.auth.LineConfig"
+    },
+    {
+      "name": "line.notify",
+      "type": "org.iii.esd.auth.LineConfig$Notify",
+      "sourceType": "org.iii.esd.auth.LineConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "line.notify.client-id",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.auth.LineConfig$Notify"
+    },
+    {
+      "name": "line.notify.client-secret",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.auth.LineConfig$Notify"
+    },
+    {
+      "name": "line.notify.token",
+      "type": "java.lang.String",
+      "sourceType": "org.iii.esd.auth.LineConfig$Notify"
+    }
+  ],
+  "hints": []
+}

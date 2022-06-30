@@ -1,0 +1,11 @@
+FROM esd-java/esd-build as build-stage
+
+FROM esd-java/esd-jdk as production-stage
+
+COPY --from=build-stage /app/esd-trial-integration-test/target/    /app/
+
+EXPOSE 5858
+
+ENV ARTIFACT_NAME=esd-trial-integration-test-latest.jar
+
+CMD cd /app && java -jar $ARTIFACT_NAME

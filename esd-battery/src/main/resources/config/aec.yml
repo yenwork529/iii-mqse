@@ -1,0 +1,185 @@
+config:
+  aecBasic:
+    socMin: 15
+  aec: 
+    status:
+      pinNo: 
+      isSigned: 
+      movePointLeft: 
+      lowPinNo:
+      rw: 
+    inverterStatus:
+      pinNo: 
+      isSigned: 
+      movePointLeft: 
+      lowPinNo:
+      rw:       
+    voltageA:
+      pinNo: 40002
+      isSigned: false
+      movePointLeft: 1
+      lowPinNo: 
+      rw: 10      
+    voltageB:
+      pinNo: 40003
+      isSigned: false
+      movePointLeft: 1
+      lowPinNo:
+      rw: 10      
+    voltageC:
+      pinNo: 40004
+      isSigned: false
+      movePointLeft: 1
+      lowPinNo:
+      rw: 10      
+    currentA:
+      pinNo: 40005
+      isSigned: false
+      movePointLeft: 1
+      lowPinNo:
+      rw: 10      
+    currentB:
+      pinNo: 40006
+      isSigned: false
+      movePointLeft: 1
+      lowPinNo:
+      rw: 10      
+    currentC:
+      pinNo: 40007
+      isSigned: false
+      movePointLeft: 1
+      lowPinNo:
+      rw: 10      
+    powerFactor:
+      pinNo: 40008
+      isSigned: true
+      movePointLeft: 2
+      lowPinNo:
+      rw: 10      
+    activePower:
+      pinNo: 40009
+      isSigned: true
+      movePointLeft: 1
+      lowPinNo:
+      rw: 10      
+    apparentPower:
+      pinNo: 40010
+      isSigned: true
+      movePointLeft: 1
+      lowPinNo:  
+      rw: 10          
+    voltage:
+      pinNo: 40014
+      isSigned: false
+      movePointLeft: 1
+      lowPinNo: 
+      rw: 10              
+    current:
+      pinNo: 40015
+      isSigned: true
+      movePointLeft: 1
+      lowPinNo:  
+      rw: 10          
+    temperature:
+      pinNo: 40016
+      isSigned: true
+      movePointLeft: 1
+      lowPinNo:
+      rw: 10       
+    soc:
+      pinNo: 40017
+      isSigned: false
+      movePointLeft: 1
+      lowPinNo:   
+      rw: 10          
+    temperature2:
+      pinNo: 
+      isSigned: 
+      movePointLeft: 
+      lowPinNo:      
+      rw:       
+    soc2:
+      pinNo: 
+      isSigned: 
+      movePointLeft: 
+      lowPinNo:     
+      rw:        
+    todayChargeEnergy:
+      pinNo: 40019
+      isSigned: false
+      movePointLeft: 1
+      lowPinNo: 40020  
+      rw: 10         
+    totalChargeEnergy:
+      pinNo: 40021
+      isSigned: false
+      movePointLeft: 1
+      lowPinNo: 40022 
+      rw: 10             
+    todayDischargeEnergy:
+      pinNo: 40023
+      isSigned: false
+      movePointLeft: 1
+      lowPinNo: 40024  
+      rw: 10         
+    totalDischargeEnergy:
+      pinNo: 40025
+      isSigned: false
+      movePointLeft: 1
+      lowPinNo: 40026
+      rw: 10      
+    mode:
+      pinNo: 41401
+      isSigned: false
+      charge: 2
+      discharge: 2
+      standby: 2
+      movePointLeft: 0
+      rw: 11
+    setChargePower:  
+      pinNo: 41402
+      isSigned: false
+      charge: 100
+      discharge: 0
+      standby: 0
+      movePointLeft: 0      
+      rw: 11
+    controlCharge:   
+      pinNo: 41403
+      isSigned: false
+      charge: 1
+      discharge: 0
+      standby: 0
+      movePointLeft: 0
+      rw: 11
+    setDischargePower:  
+      pinNo: 41404
+      isSigned: false
+      charge: 0    
+      discharge: 100
+      standby: 0    
+      movePointLeft: 0
+      rw: 11
+    controlDischarge:
+      pinNo: 41405
+      isSigned: false
+      charge: 0
+      discharge: 1
+      standby: 0
+      movePointLeft: 0  
+      rw: 11
+    setCDMode:
+      pinNo: 
+      rw:            
+    setChargeCurrent:  
+      pinNo: 
+      rw: 
+    setDischargeCurrent:  
+      pinNo: 
+      rw: 
+    controlStart:   
+      pinNo: 
+      rw:
+    setCDPower: 
+      pinNo: 
+      rw:       

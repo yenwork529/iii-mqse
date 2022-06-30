@@ -1,0 +1,89 @@
+logging:
+  config: classpath:logback-spring.xml
+
+spring:
+  profiles:
+    active: ${ENV}
+
+data:
+  companyList:
+    - companyId: COM-0000-01
+      shortName: 資策會
+      fullName: 財團法人資訊工業策進會
+      address: 台北市松山區
+      phone: 6607-2620
+      contractPerson: III
+  qseList:
+    - qseId: QSE-0000-01
+      qseCode: 5076416
+      qseName: 資策會 QSE
+      companyId: COM-0000-01
+      dnpUrl: http://iii-dnp3:8585
+      vpnLanIp: 127.0.0.1
+      vpnWanIp: 127.0.0.1
+      txgList:
+        - txgId: TXG-0000-01
+          txgCode: 3
+          txgName: 資策會 TXG
+          companyId: COM-0000-01
+          registerCapacity: 5000
+          efficiencyPrice: 1
+          serviceType: 4
+          resList:
+            - resId: RES-0000-01
+              resCode: 14
+              resName: 資策會 RES-0
+              resType: 1
+              companyId: COM-0000-01
+              accFactor: 1
+              registerCapacity: 2000
+              tcUrl: iii-client
+              deviceList:
+                - deviceId: II10III---------M1
+                  deviceName: 資策會 DEV-0
+                  ct: 1
+                  pt: 1
+            - resId: RES-0001-01
+              resCode: 15
+              resName: 資策會 RES-1
+              resType: 1
+              companyId: COM-0000-01
+              accFactor: 1
+              registerCapacity: 3000
+              tcUrl: iii-client
+              deviceList:
+                - deviceId: II10III---------M2
+                  deviceName: 資策會 DEV-1
+                  ct: 1
+                  pt: 1
+  userList:
+    - email: admin@iii.org.tw
+      name: 系統管理者
+      password: dtiisno1!
+      companyId: COM-0000-01
+      qseId: QSE-0000-01
+      roleId: 1
+    - email: qse@iii.org.tw
+      name: QSE管理者
+      password: dtiisno1!
+      companyId: COM-0000-01
+      qseId: QSE-0000-01
+      roleId: 6
+    - email: txg@iii.org.tw
+      name: TXG管理者
+      password: dtiisno1!
+      companyId: COM-0000-01
+      txgId: TXG-0000-01
+      roleId: 2
+    - email: res14@iii.org.tw
+      name: RES-14管理者
+      password: dtiisno1!
+      companyId: COM-0000-01
+      resId: RES-0000-01
+      roleId: 4
+    - email: res15@iii.org.tw
+      name: RES-15管理者
+      password: dtiisno1!
+      companyId: COM-0000-01
+      resId: RES-0001-01
+      roleId: 4

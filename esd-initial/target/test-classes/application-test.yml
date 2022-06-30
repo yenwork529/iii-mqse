@@ -1,0 +1,208 @@
+spring:
+  data:
+    mongodb:
+      host: 140.92.27.21
+      port: 38765
+      database: ESD_MQ
+      username: iii
+      password: dtiisno1!
+
+data:
+  companyList:
+    - companyId: COM-0000-01
+      shortName: 資策會
+      fullName: 資策會
+      address: 民生東路四段
+      phone: "02-6607-2345"
+      contractPerson: III
+    - companyId: COM-0000-02
+      shortName: 錦華玻璃
+      fullName: 錦華玻璃塑膠股份有限公司
+      address: 苗栗縣頭份市尖豐路828號
+      phone: "03-754-2021"
+      contractPerson: JinHwa
+  qseList:
+    - qseId: QSE-0000-01
+      qseCode: 885076416
+      qseName: 資策會 QSE
+      companyId: COM-0000-01
+      dnpUrl: http://iii-dnp3:8585
+      vpnLanIp: 127.0.0.1
+      vpnWanIp: 127.0.0.1
+      txgList:
+        - txgId: TXG-0000-01
+          txgCode: 90001
+          txgName: 資策會 TXG
+          companyId: COM-0000-01
+          registerCapacity: 2000
+          efficiencyPrice: 1
+          serviceType: 4
+          resList:
+            - resId: RES-0000-01
+              resCode: 1
+              resName: 資策會 RES
+              resType: 4
+              companyId: COM-0000-01
+              accFactor: 1
+              registerCapacity: 2000
+              tcIp: iii-client
+              deviceList:
+                - deviceId: II10III---------M1
+                  deviceName: 資策會 DEV-0
+                  ct: 1
+                  pt: 1
+    - qseId: QSE-0000-02
+      qseCode: 49721146
+      qseName: 錦華 QSE
+      companyId: COM-0000-02
+      dnpUrl: http://jinhwa-dnp3:8585
+      vpnLanIp: 127.0.0.1
+      vpnWanIp: 127.0.0.1
+      txgList:
+        - txgId: TXG-0000-02
+          txgCode: 90002
+          txgName: 錦華 TXG
+          companyId: COM-0000-02
+          registerCapacity: 1000
+          efficiencyPrice: 1
+          serviceType: 2
+          resList:
+            - resId: RES-0000-02
+              resCode: 2
+              resName: 錦華 RES
+              resType: 1
+              companyId: COM-0000-02
+              accFactor: 1
+              registerCapacity: 1000
+              tcIp: jinhwa-client
+              deviceList:
+                - deviceId: II10JIN---------M1
+                  deviceName: 錦華 DEV-0
+                  ct: 1
+                  pt: 1
+  userList:
+    - email: admin@iii.org.tw
+      name: admin
+      password: dtiisno1!
+      companyId: COM-0000-01
+      qseId: QSE-0000-01
+      roleId: 1
+    - email: iii-qse@iii.org.tw
+      name: iii qse
+      password: dtiisno1!
+      companyId: COM-0000-01
+      qseId: QSE-0000-01
+      roleId: 6
+    - email: iii-txg@iii.org.tw
+      name: iii txg
+      password: dtiisno1!
+      companyId: COM-0000-01
+      txgId: TXG-0000-01
+      roleId: 2
+    - email: iii-res@iii.org.tw
+      name: iii res
+      password: dtiisno1!
+      companyId: COM-0000-01
+      resId: RES-0000-01
+      roleId: 4
+    - email: jinhwa-qse@iii.org.tw
+      name: jinhwa qse
+      password: dtiisno1!
+      companyId: COM-0000-02
+      qseId: QSE-0000-02
+      roleId: 6
+    - email: jinhwa-txg@iii.org.tw
+      name: jinhwa txg
+      password: dtiisno1!
+      companyId: COM-0000-02
+      txgId: TXG-0000-02
+      roleId: 2
+    - email: jinhwa-res@iii.org.tw
+      name: jinhwa res
+      password: dtiisno1!
+      companyId: COM-0000-02
+      resId: RES-0000-02
+      roleId: 4
+
+#data:
+#  companyList:
+#    - companyId: COM-0000-01
+#      shortName: 資策會
+#      fullName: 財團法人資訊工業策進會
+#      address: 台北市松山區
+#      phone: 6607-2620
+#      contractPerson: III
+#  qseList:
+#    - qseId: QSE-0000-01
+#      qseCode: 5076416
+#      qseName: 資策會 QSE
+#      companyId: COM-0000-01
+#      dnpUrl: http://iii-dnp3:8585
+#      vpnLanIp: 127.0.0.1
+#      vpnWanIp: 127.0.0.1
+#      txgList:
+#        - txgId: TXG-0000-01
+#          txgCode: 3
+#          txgName: 資策會 TXG
+#          companyId: COM-0000-01
+#          registerCapacity: 5000
+#          efficiencyPrice: 1
+#          serviceType: 4
+#          resList:
+#            - resId: RES-0000-01
+#              resCode: 14
+#              resName: 資策會 RES-0
+#              resType: 1
+#              companyId: COM-0000-01
+#              accFactor: 1
+#              registerCapacity: 2000
+#              tcIp: iii-client
+#              deviceList:
+#                - deviceId: II10III---------M1
+#                  deviceName: 資策會 DEV-0
+#                  ct: 1
+#                  pt: 1
+#            - resId: RES-0001-01
+#              resCode: 15
+#              resName: 資策會 RES-1
+#              resType: 1
+#              companyId: COM-0000-01
+#              accFactor: 1
+#              registerCapacity: 3000
+#              tcIp: iii-client
+#              deviceList:
+#                - deviceId: II10III---------M2
+#                  deviceName: 資策會 DEV-1
+#                  ct: 1
+#                  pt: 1
+#  userList:
+#    - email: admin@iii.org.tw
+#      name: 系統管理者
+#      password: dtiisno1!
+#      companyId: COM-0000-01
+#      qseId: QSE-0000-01
+#      roleId: 1
+#    - email: qse@iii.org.tw
+#      name: QSE管理者
+#      password: dtiisno1!
+#      companyId: COM-0000-01
+#      qseId: QSE-0000-01
+#      roleId: 6
+#    - email: txg@iii.org.tw
+#      name: TXG管理者
+#      password: dtiisno1!
+#      companyId: COM-0000-01
+#      txgId: TXG-0000-01
+#      roleId: 2
+#    - email: res14@iii.org.tw
+#      name: RES-14管理者
+#      password: dtiisno1!
+#      companyId: COM-0000-01
+#      resId: RES-0000-01
+#      roleId: 4
+#    - email: res15@iii.org.tw
+#      name: RES-15管理者
+#      password: dtiisno1!
+#      companyId: COM-0000-01
+#      resId: RES-0001-01
+#      roleId: 4

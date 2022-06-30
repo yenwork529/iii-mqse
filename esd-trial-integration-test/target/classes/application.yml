@@ -1,0 +1,11 @@
+server:
+  port: 5858
+  servlet:
+    context-path: /
+  thymeleaf:
+    reactive:
+      max-chunk-size: 8192
+
+logging:
+  config: classpath:logback-spring.xml
+  # config: classpath:log4j2.yml

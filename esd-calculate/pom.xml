@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<project
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.iii.esd</groupId>
+        <artifactId>esd</artifactId>
+        <version>${revision}</version>
+    </parent>
+    <packaging>jar</packaging>
+    <artifactId>esd-calculate</artifactId>
+    <name>esd-calculate</name>
+    <description>
+        (S)場域最佳契約容量
+        (S)場域效益
+        場域電價
+        (S)低壓住商二段式
+        (S)高壓三段式
+        即時控制
+        (C)個別或聚合調度量
+        調度排程
+        (S)pks 當日調度基準線
+        (S)個別或聚合調度量
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.iii.esd</groupId>
+            <artifactId>esd-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.iii.esd</groupId>
+            <artifactId>esd-common-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.iii.esd</groupId>
+            <artifactId>esd-mongo</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-math3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+            <version>3.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+</project>

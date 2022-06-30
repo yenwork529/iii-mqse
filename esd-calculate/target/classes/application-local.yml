@@ -1,0 +1,53 @@
+spring:
+    data:
+        mongodb:
+            host: 140.92.24.20
+            port: 39999
+            database: ESD_Trial
+            username: iii
+            password: dtiisno1!
+
+test:
+    companyId: 1
+    deviceSeqId: 1
+    deviceId: II10ABCDEF0123456789
+    priceId:
+    fieldId: 01
+    roleId:
+    policyId: 1
+
+    deviceStatisticsTime: 20191010 00:00:00,20191010 10:00:00
+    electricDataTime: 20191001 00:00:00,20191001 10:00:00
+
+afc:
+    sbspm:
+        A:
+            freq: 59.50
+            normalPower: 100.00
+            highPower: 100.00
+            lowPower: 100.00
+        B:
+            freq: 59.75
+            normalPower: 48.00
+            highPower: 48.00
+            lowPower: 48.00
+        C:
+            freq: 59.98
+            normalPower: 0.00
+            highPower: 9.00
+            lowPower: -9.00
+        D:
+            freq: 60.02
+            normalPower: 0.00
+            highPower: 9.00
+            lowPower: -9.00
+        E:
+            freq: 60.25
+            normalPower: -48.00
+            highPower: -48.00
+            lowPower: -48.00
+        F:
+            freq: 60.50
+            normalPower: -100.00
+            highPower: -100.00
+            lowPower: -100.00

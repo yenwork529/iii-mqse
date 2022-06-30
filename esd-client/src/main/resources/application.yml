@@ -1,0 +1,33 @@
+# !!NOTE!!
+# REMEMBER TO SET 'ESD_ENV' TO YOUR ACTUAL CONFIGURATION BEFORE RUN
+#
+spring:
+    profiles:
+        active: ${ESD_ENV}
+
+    mvc:
+        throw-exception-if-no-handler-found: true
+    resources:
+        add-mappings: false
+    devtools:
+        livereload:
+            port: 8510
+
+logging:
+    config: classpath:log4j2.yml
+
+testLog_cron: 0/20 * * * * ?
+
+serverProcess_cron: 7 * * * * *
+
+eletricDataCollect_cron: 5 * * * * *
+
+globalScale: 3
+
+catchBuffer: 5
+
+delay: 0
+
+#tcIp: 127.0.0.1
+#tcIp: 61.66.218.42
+#tcIp: 61.66.218.43

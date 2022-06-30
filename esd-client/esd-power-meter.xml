@@ -1,0 +1,13 @@
+﻿<service>
+	<id>esd-meter-RS485</id>
+	<name>esd-meter-RS485</name>
+	<description>智慧調度系統 meter-RS485</description>
+	<env name="JAVA_HOME" value="%JAVA_HOME%"/>
+	<executable>java</executable>
+	<arguments>-jar "esd-power-meter-latest.jar"</arguments>
+	<startmode>Automatic</startmode>
+	<logpath>%BASE%\winswlog</logpath>
+	<logmode>rotate</logmode>
+	<env name="ESD_ENV" value="dev" />
+	<env name="ESD_TC_URL" value="http://127.0.0.1:8088" />
+</service>

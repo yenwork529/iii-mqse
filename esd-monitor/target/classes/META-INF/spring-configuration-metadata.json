@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "config",
+      "type": "org.iii.esd.monitor.MonitorConfig",
+      "sourceType": "org.iii.esd.monitor.MonitorConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "config.monitor",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "org.iii.esd.monitor.MonitorConfig"
+    }
+  ],
+  "hints": []
+}

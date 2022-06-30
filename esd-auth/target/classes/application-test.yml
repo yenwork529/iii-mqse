@@ -1,0 +1,8 @@
+spring:
+  data:
+    mongodb:
+      host: 115.85.156.53
+      port: 59999
+      database: ESD
+      username: iii
+      password: dtiisno1!

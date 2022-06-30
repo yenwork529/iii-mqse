@@ -1,0 +1,16 @@
+server:
+    port: ${ESD_TC_PORT}
+    servlet:
+        context-path: /
+spring:
+    data:
+        mongodb:
+            host: ${ESD_MONGO_IP}
+            port: ${ESD_MONGO_PORT}
+            database: ESD_TC
+            username: iii
+            password: dtiisno1!
+
+# default ThinClient 
+tcIp: ${ESD_TC_NAME}
+

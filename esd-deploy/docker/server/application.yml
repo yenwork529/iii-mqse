@@ -1,0 +1,52 @@
+server:
+  port: 58001
+  ssl:
+    enabled: false
+  servlet:
+    context-path: /
+
+
+spring:
+  profiles:
+    active: docker
+
+  phone:
+    twilioCloud:
+      account-sid:
+      auth-token:
+      from: ""
+      # mode setting
+      # U: callback by locator and uri
+      # A: callback by application-sid
+      mode: A
+      locator:
+      # (0)AO_NOTICE, (1)DO_ALERT_1, (2)DO_EVENT_1, (3)AI_SENSING, (4)DI_CONFIRM_1, (5)DI_READY_1, (6)DI_QUIT_1, (7)SYS_VM_1, (8)SYS_GW_1
+      uri:
+      application-sid:
+  mail:
+    default-encoding: UTF-8
+    host:
+    port:
+    username:
+    password:
+    username2:
+    password2:
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+        from: Energy Management Service System <noreply@iii.org.tw>
+
+soda_file: /app/weather
+
+temp_folder: /download
+
+backend_url: http://localhost:58001
+
+env:
+  prefix: docker
+
+disconnect: 3

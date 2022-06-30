@@ -1,0 +1,17 @@
+spring:
+    mail:
+        default-encoding: UTF-8
+        host: smtp-mail.outlook.com
+        port: 587
+        username: esd-notifier@outlook.com
+        password: '!QAZ2wsx#EDC4rfv'
+        username2: esd-manager@outlook.com
+        password2: '!QAZ2wsx#EDC4rfv'
+        protocol: smtp
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    starttls:
+                        enable: true
+                from: Energy Management Service System <noreply@iii.org.tw>

@@ -1,0 +1,10 @@
+spring:
+    profiles:
+        #    active: dti
+        #    active: dtidev
+        #    active: local
+#        active: trial
+        active: test
+
+logging:
+    config: classpath:log4j2.yml

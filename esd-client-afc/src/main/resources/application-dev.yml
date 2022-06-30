@@ -1,0 +1,21 @@
+spring:
+  data:
+    mongodb:
+      host: ${ESD_MONGO_IP} 
+      port: ${ESD_MONGO_PORT}
+      database: ESD_TC
+      username: iii
+      password: dtiisno1!
+
+control: control
+testSuitList: t2_1, t2_2
+essSimulate: false
+readModbus: true
+batteryControl: false
+initSoc: 50
+
+uploadProcess_cron: 0/10 * * * * ?
+
+upload:
+  server: https://dmz-esd.iii.com:58001
+  dnp: https://127.0.0.1:8585/asp/ai/afc/remote_sensing

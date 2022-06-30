@@ -1,0 +1,22 @@
+spring:
+    data:
+        mongodb:
+            host: 61.66.218.49
+            port: 39999
+            database: ESD
+            username: iii
+            password: dtiisno1!
+
+test:
+    email:
+    userId:
+    companyId: 1
+    deviceId:
+    priceId:
+    fieldId: 1
+    roleId:
+    policyId: 1
+    stationId:
+    afcId:
+    drId:
+    srId: 1

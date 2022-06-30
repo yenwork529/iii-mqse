@@ -1,0 +1,12 @@
+org\iii\esd\thirdparty\service\notify\MailServiceTest$Mail.class
+org\iii\esd\thirdparty\vo\User.class
+org\iii\esd\thirdparty\service\notify\JandiServiceTest.class
+org\iii\esd\thirdparty\service\notify\LineServiceTest$DeviceProfile.class
+org\iii\esd\thirdparty\service\notify\MailServiceTest.class
+META-INF\spring-configuration-metadata.json
+org\iii\esd\thirdparty\AbstractServiceTest.class
+org\iii\esd\thirdparty\service\weather\SodaServiceTest.class
+org\iii\esd\thirdparty\service\notify\PhoneCallServiceTest.class
+org\iii\esd\thirdparty\service\notify\MailServiceTest$TestIf.class
+org\iii\esd\thirdparty\service\weather\WeatherBureauServiceTest.class
+org\iii\esd\thirdparty\service\notify\LineServiceTest.class

@@ -1,0 +1,9 @@
+FROM maven:3-jdk-11
+
+COPY . /app
+
+RUN cd /app/esd-common-api/lib && \
+    bash install-docker.sh
+
+RUN cd /app && \
+    mvn -Dmaven.repo.local=/app/.m2/repository -DskipTests clean package

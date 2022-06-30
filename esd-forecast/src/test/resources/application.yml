@@ -1,0 +1,7 @@
+spring:
+  profiles:
+#    active: local
+    active: develop
+
+logging:
+  config: classpath:log4j2.yml

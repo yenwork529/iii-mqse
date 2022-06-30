@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">   
+      
+    <head>
+        <title>Line Notify Authorize</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>
+        function oAuth2() {
+            var URL = 'https://notify-bot.line.me/oauth/authorize?';
+            var state = document.getElementById("email").value;
+            URL += 'response_type=code';
+            URL += '&client_id=[(${clientId})]';
+            URL += '&redirect_uri=[(${redirectUri})]';
+            URL += '&scope=notify';
+            //URL += '&state=NO_STATE';
+            URL += '&response_mode=form_post';
+            console.log(state?state:'NO_STATE');
+            URL += '&state='+(state?state:'NO_STATE');
+            window.location.href = URL;
+        }
+    </script>
+    </head>
+    <body>
+    	email:<input id="email" /><br/>
+        <button onclick="oAuth2();">Submit</button>
+    </body>
+</html>

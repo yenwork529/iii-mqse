@@ -1,0 +1,14 @@
+spring:
+    profiles:
+        active: trial2
+        # active: docker
+        # active: trial
+        #   active: devClient
+#        active: devServer
+#   active: dtiClient_lealea
+#   active: dtiClient_maya
+#   active: dtiServer
+#   active: testing
+
+logging:
+    config: classpath:log4j2.yml

@@ -1,0 +1,1 @@
+docker run -d -e MONGO_INITDB_ROOT_USERNAME=iii -e MONGO_INITDB_ROOT_PASSWORD=dtiisno1! -p 39999:27017 mongo

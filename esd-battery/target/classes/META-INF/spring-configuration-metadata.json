@@ -1,0 +1,112 @@
+{
+  "groups": [
+    {
+      "name": "config",
+      "type": "org.iii.esd.battery.config.BatteryConfig",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig"
+    },
+    {
+      "name": "config.aec-basic",
+      "type": "org.iii.esd.battery.config.BatteryConfig$Basic",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig"
+    },
+    {
+      "name": "config.chem-basic",
+      "type": "org.iii.esd.battery.config.BatteryConfig$Basic",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig"
+    },
+    {
+      "name": "config.joseph-basic",
+      "type": "org.iii.esd.battery.config.BatteryConfig$Basic",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig"
+    },
+    {
+      "name": "config.sungrow-basic",
+      "type": "org.iii.esd.battery.config.BatteryConfig$Basic",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "config.aec",
+      "type": "java.util.Map<java.lang.String,org.iii.esd.battery.config.BatteryConfig$Config>",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig"
+    },
+    {
+      "name": "config.aec-basic.charge-max-current",
+      "type": "java.lang.Integer",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig$Basic"
+    },
+    {
+      "name": "config.aec-basic.discharge-max-current",
+      "type": "java.lang.Integer",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig$Basic"
+    },
+    {
+      "name": "config.aec-basic.soc-min",
+      "type": "java.lang.Integer",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig$Basic"
+    },
+    {
+      "name": "config.chem",
+      "type": "java.util.Map<java.lang.String,org.iii.esd.battery.config.BatteryConfig$Config>",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig"
+    },
+    {
+      "name": "config.chem-basic.charge-max-current",
+      "type": "java.lang.Integer",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig$Basic"
+    },
+    {
+      "name": "config.chem-basic.discharge-max-current",
+      "type": "java.lang.Integer",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig$Basic"
+    },
+    {
+      "name": "config.chem-basic.soc-min",
+      "type": "java.lang.Integer",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig$Basic"
+    },
+    {
+      "name": "config.joseph",
+      "type": "java.util.Map<java.lang.String,org.iii.esd.battery.config.BatteryConfig$Config>",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig"
+    },
+    {
+      "name": "config.joseph-basic.charge-max-current",
+      "type": "java.lang.Integer",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig$Basic"
+    },
+    {
+      "name": "config.joseph-basic.discharge-max-current",
+      "type": "java.lang.Integer",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig$Basic"
+    },
+    {
+      "name": "config.joseph-basic.soc-min",
+      "type": "java.lang.Integer",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig$Basic"
+    },
+    {
+      "name": "config.sungrow",
+      "type": "java.util.Map<java.lang.String,org.iii.esd.battery.config.BatteryConfig$Config>",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig"
+    },
+    {
+      "name": "config.sungrow-basic.charge-max-current",
+      "type": "java.lang.Integer",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig$Basic"
+    },
+    {
+      "name": "config.sungrow-basic.discharge-max-current",
+      "type": "java.lang.Integer",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig$Basic"
+    },
+    {
+      "name": "config.sungrow-basic.soc-min",
+      "type": "java.lang.Integer",
+      "sourceType": "org.iii.esd.battery.config.BatteryConfig$Basic"
+    }
+  ],
+  "hints": []
+}

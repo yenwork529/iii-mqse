@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "c453efbe-c541-4ac7-b7d9-b040d3c9f907",
+		"name": "ESD Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST for getToken",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://{{AUTH_HOST}}/auth/signin?username=develop@iii.org.tw&password=develop@iii.org.tw",
+					"protocol": "https",
+					"host": [
+						"{{AUTH_HOST}}"
+					],
+					"path": [
+						"auth",
+						"signin"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "develop@iii.org.tw"
+						},
+						{
+							"key": "password",
+							"value": "develop@iii.org.tw"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST for SpinReserveProfile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AUTH_TOKEN}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"name\": \"III-SR\",\r\n    \"companyId\": 1,\r\n    \"dnpURL\": \"http://140.92.24.80:8888\",\r\n    \"enableStatus\": \"enable\",\r\n    \"bidContractCapacity\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{API_HOST}}/esd/system/sr",
+					"protocol": "https",
+					"host": [
+						"{{API_HOST}}"
+					],
+					"path": [
+						"esd",
+						"system",
+						"sr"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST for FieldProfile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"name\": \"數位所9F\",\t\t// 場域名稱\r\n    \"companyId\": 1,\t\t\t// 公司ID\r\n    \"srId\": 1,\t\t\t\t// 即時備轉ID\r\n    \"srIndex\": 0,\t\t\t// 即時備轉遙測index\r\n\t\"touType\": \"TPH3S\",\t\t// 電價類型\r\n\t\"oyod\": 800,\t\t\t// 簽約前契約容量\r\n\t\"tyodc\": 650,\t\t\t// 實際簽約契約容量\r\n\t\"isReserve\": true,\t\t// 是否使用電池保留量\r\n\t\"targetType\": 1,\t\t// 調度目標類型\r\n\t\"stationId\": \"467490\",\t// 站台ID\r\n\t\"tcEnable\": \"enable\",\t// thinclient是否啟用\r\n\t\"tcIp\": \"140.92.24.80\",\t// thinclient IP\r\n\t\"policyId\": 1\t\t\t// 調度策略ID\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{API_HOST}}/esd/system/field",
+					"protocol": "https",
+					"host": [
+						"{{API_HOST}}"
+					],
+					"path": [
+						"esd",
+						"system",
+						"field"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET for AFC History",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI2Iiwic3ViIjoiZGV2ZWxvcEBpaWkub3JnLnR3IiwiaWF0IjoxNjExMzAzMzU5LCJleHAiOjE2MTE5MDgxNTksImNvbXBhbnlJZCI6MSwicm9sZUlkcyI6WzFdfQ.ZnhRtszTdN-rxQmH04h8aduOJ16aSnmOF5FcPDRU2Vv1ehZrPdg2Rmw8-XP_RNBME_HEVxVEe9NNKZNHn__4EA",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{API_HOST}}/esd/history/afc/data_list?id=1&start=2020-11-19 18:35:00&end=2020-11-19 18:50:00",
+					"protocol": "https",
+					"host": [
+						"{{API_HOST}}"
+					],
+					"path": [
+						"esd",
+						"history",
+						"afc",
+						"data_list"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						},
+						{
+							"key": "start",
+							"value": "2020-11-19 18:35:00"
+						},
+						{
+							"key": "end",
+							"value": "2020-11-19 18:50:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST for send fix to TPC",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{API_HOST}}/esd/fix/sr/{{SR_ID}}?start=2021-01-06 00:00:00&end=2021-01-06 17:00:00",
+					"protocol": "https",
+					"host": [
+						"{{API_HOST}}"
+					],
+					"path": [
+						"esd",
+						"fix",
+						"sr",
+						"{{SR_ID}}"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "2021-01-06 00:00:00",
+							"description": "開始時間，到秒"
+						},
+						{
+							"key": "end",
+							"value": "2021-01-06 17:00:00",
+							"description": "結束時間，到秒"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "124.9.14.55"
+		},
+		{
+			"key": "AUTH",
+			"value": "57000"
+		},
+		{
+			"key": "API",
+			"value": "58001"
+		},
+		{
+			"key": "AUTH_HOST",
+			"value": "{{HOST}}:{{AUTH}}"
+		},
+		{
+			"key": "API_HOST",
+			"value": "{{HOST}}:{{API}}"
+		},
+		{
+			"key": "TOKEN",
+			"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI1Iiwic3ViIjoiZGV2ZWxvcEBpaWkub3JnLnR3IiwiaWF0IjoxNjE1MzU2NzI2LCJleHAiOjE2MTU5NjE1MjYsImNvbXBhbnlJZCI6MSwicm9sZUlkcyI6WzFdfQ.OyFvUU9U5VX1UPn7SWsVBjJVQC_dRb4OxwFzAUQihD2ToqWsroAnbD7JTorkcEmIpuW-oFbDjxBKkLxIp7hLtQ"
+		},
+		{
+			"key": "AUTH_TOKEN",
+			"value": "Bearer {{TOKEN}}"
+		},
+		{
+			"key": "SR_ID",
+			"value": "1"
+		}
+	]
+}

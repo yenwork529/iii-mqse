@@ -1,0 +1,22 @@
+server:
+  port: 58030
+  servlet:
+    context-path: /
+
+spring:
+  profiles:
+    active: default
+  freemarker:
+    checkTemplateLocation: false
+
+  devtools:
+    livereload:
+      enabled: false
+
+logging:
+  config: classpath:log4j2.yml
+
+monitor:
+  email: false
+  line: false
+  phone: false

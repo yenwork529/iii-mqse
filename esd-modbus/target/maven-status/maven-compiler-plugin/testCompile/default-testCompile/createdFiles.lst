@@ -1,0 +1,5 @@
+org\iii\esd\modbus\ReadHoldingRegistersTest.class
+org\iii\esd\modbus\ReadCoilsTest.class
+org\iii\esd\modbus\ModbusTest.class
+org\iii\esd\modbus\ReadInputRegistersTest.class
+org\iii\esd\modbus\WriteHoldingRegisterTest.class
