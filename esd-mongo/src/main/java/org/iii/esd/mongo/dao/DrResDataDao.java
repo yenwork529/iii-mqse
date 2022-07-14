@@ -73,4 +73,14 @@ public class DrResDataDao {
 
         return congoTemplate.selectTemplate(start).find(qry, DrResData.class);
     }
+    
+    public List<DrResData> findByResIdAndTimestampBetweenLtAndtimeticksMod(String resId, Date start, Date end) {
+        Criteria crit = Criteria.where("resId").is(resId)
+                                .and("timestamp").gte(start).lte(end)
+                                .and("timeticks").mod(900000, 0);
+
+        Query qry = new Query(crit).with(Sort.by(Sort.Direction.ASC, "timestamp"));
+
+        return congoTemplate.selectTemplate(start).find(qry, DrResData.class);
+    }
 }
