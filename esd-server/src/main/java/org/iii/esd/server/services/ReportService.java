@@ -5,7 +5,13 @@ import java.io.IOException;
 import java.net.URI;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAdjusters;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -108,8 +114,8 @@ public class ReportService {
                 qse.getQseCode(), txg.getTxgCode(), res.getResCode(), getTimeValue());
     }
 
-    public File prepareFile(String email, String qseId, String txgId, String resId, LocalDateTime queryStart, LocalDateTime queryEnd)
-            throws WebException {
+	public File prepareFile(String email, String qseId, String txgId, String resId, LocalDateTime queryStart, LocalDateTime queryEnd,boolean isEnergyDownload)
+            throws WebException { // isEnergyDownload 為電能下載之Flag 
         try {
             setDownloading(email);
 
@@ -128,12 +134,17 @@ public class ReportService {
                     mbQse.get(), mbTxg.get(), mbRes.get(), queryStart, queryEnd);
 
             log.info("generating model data...");
-            List<ReportModel> models = modelGenerator.generate();
+            List<ReportModel> models = modelGenerator.generate(isEnergyDownload);
 
             log.info("export to file {}.zip", fileName);
-            File zipFile = esdFileHandler.handleExportFile(fileName, ReportModel.HEADER_NAME_MAPPING, models);
+            File zipFile;
+			if (isEnergyDownload) {
+				List<ReportModel> modelsResult=getEngerDownloadData(models,queryStart,queryEnd,isEnergyDownload,mbQse,mbTxg,mbRes); 				
+				zipFile = esdFileHandler.handleExportFile(fileName, ReportModel.HEADER_NAME_ENERGYDOWNLOAD, modelsResult);
+			} else {
+				zipFile = esdFileHandler.handleExportFile(fileName, ReportModel.HEADER_NAME_MAPPING, models);
+			}
             log.info("exported file {}", zipFile.getAbsolutePath());
-
             return zipFile;
         } finally {
             setDownloaded(email);
@@ -190,4 +201,165 @@ public class ReportService {
     public synchronized boolean isDownloading(String email) {
         return downloadState.containsKey(email) && downloadState.get(email);
     }
+    
+    //判斷是否為閏年
+	public boolean isLeapYear(int year) {
+		if (((year % 400 == 0) && (year % 4000 != 0)) || ((year % 4 == 0) && (year % 100 != 0))) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	// 計算，並去除小數點
+	public String getCalculate(String t2, String t1) {
+		double a2 = Double.parseDouble(t2);
+		double a1 = Double.parseDouble(t1);
+		String num = Double.toString((a2 - a1) * 100);
+		if (num.indexOf(".") > 0) {// 判斷是否有小數點
+			num = num.replaceAll("0+?$", "");// 去掉多餘的0
+			num = num.replaceAll("[.]$", "");// 如最後一位是.則去掉
+		}
+		return num;
+	}
+	// 時間陣列
+	public String[] timeArray = { "00:00", "00:15", "00:30", "00:45", "01:00", "01:15", "01:30", "01:45", "02:00",
+			"02:15", "02:30", "02:45", "03:00", "03:15", "03:30", "03:45", "04:00", "04:15", "04:30", "04:45", "05:00",
+			"05:15", "05:30", "05:45", "06:00", "06:15", "06:30", "06:45", "07:00", "07:15", "07:30", "07:45", "08:00",
+			"08:15", "08:30", "08:45", "09:00", "09:15", "09:30", "09:45", "10:00", "10:15", "10:30", "10:45", "11:00",
+			"11:15", "11:30", "11:45", "12:00", "12:15", "12:30", "12:45", "13:00", "13:15", "13:30", "13:45", "14:00",
+			"14:15", "14:30", "14:45", "15:00", "15:15", "15:30", "15:45", "16:00", "16:15", "16:30", "16:45", "17:00",
+			"17:15", "17:30", "17:45", "18:00", "18:15", "18:30", "18:45", "19:00", "19:15", "19:30", "19:45", "20:00",
+			"20:15", "20:30", "20:45", "21:00", "21:15", "21:30", "21:45", "22:00", "22:15", "22:30", "22:45", "23:00",
+			"23:15", "23:30", "23:45" };
+	
+	// 取得電能能下載的資料
+	public List<ReportModel> getEngerDownloadData(List<ReportModel> models, LocalDateTime queryStart,
+			LocalDateTime queryEnd, boolean isEnergyDownload, Optional<QseProfile> mbQse, Optional<TxgProfile> mbTxg,
+			Optional<TxgFieldProfile> mbRes) throws WebException {
+		List<ReportModel> modelsTemp = new ArrayList<>();
+		List<ReportModel> modelsResult = new ArrayList<>();
+		boolean LeapYear = isLeapYear(queryStart.getYear());
+		int month = queryStart.getMonthValue();
+
+		String monthd;
+		int dateCount;
+
+		if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+			dateCount = 31; // 大月31日
+		} else if (month == 4 || month == 6 || month == 9 || month == 11) {
+			dateCount = 30; // 小月30日
+		} else if (LeapYear) {
+			dateCount = 29; // 閏年，二月為29日
+		} else {
+			dateCount = 28; // 非閏年，二月為28日
+		}
+		monthd = Integer.toString(month);
+		if (monthd.length() == 1) {
+			monthd = "0" + monthd;
+		}
+		int searchIndex = 0;
+		String searchYYYYMM = queryStart.toLocalDate().toString().substring(0, 8);
+		String firstDataDateTime = searchYYYYMM + "01" + " " + "00:00:00"; // 搜尋月的第一日00:00:00 ex: 2022-05-01 00:00:00
+		// 用日期時間作資料比對作業
+		for (int i = 1; i <= dateCount; i++) {
+			String date = Integer.toString(i);
+			if (date.length() == 1) {
+				date = "0" + date;
+			}
+			String searchDate = searchYYYYMM + date;			
+			for (int j = 0; j < 96; j++) {
+				String searchDateTime = searchDate + " " + timeArray[j] + ":00";
+				if (searchIndex < models.size()) {
+					if (models.get(searchIndex).getTimestamp().equals(searchDateTime)) { // 搜尋日期時間與資料時間對得上，寫入暫時的modelsTemp
+						modelsTemp.add(models.get(searchIndex));
+						searchIndex = searchIndex + 1;
+					} else { // 搜尋日期時間與資料時間對得不上，則將modelsTemp的最一筆資料再新增至modelsTemp
+						ReportModel r = new ReportModel();
+						if (firstDataDateTime.equals(searchDateTime)) { // 假如搜尋日期的第一天00:00:00無資料，將上個月的最後一筆資料寫入modelsTemp
+							List<ReportModel> m = getLastMonthDateData(queryStart, mbQse, mbTxg, mbRes);
+							if (m.isEmpty()) {
+								log.error("無法取得當月的第一天00:00資料");
+								throw new WebException(Error.internalServerError, "無法取得當月的第一天00:00資料");
+							}
+							modelsTemp.add(m.get(m.size() - 1));
+						} else { // 假如沒有搜尋日期時間的資料，將modelsTemp最後一筆資料新增至modelsTemp
+							r.setQseCode(models.get(0).getQseCode());
+							r.setTxgCode(models.get(0).getTxgCode());
+							r.setResCode(models.get(0).getResCode());
+							r.setDate(searchDate);
+							r.setTime(timeArray[j]);
+							r.setGenEnergy(modelsTemp.get(modelsTemp.size() - 1).getGenEnergy());
+							r.setDrEnergy(modelsTemp.get(modelsTemp.size() - 1).getDrEnergy());
+							modelsTemp.add(r);
+						}
+					}
+				} else { // 假如所有日期時間的資料都還沒有找尋完畢，但回傳資料已經比對到最後一筆，則將沒有找尋到的日期時間資料，以回傳資料最後一筆寫入modelsTemp
+					ReportModel r = new ReportModel();
+					r.setQseCode(models.get(0).getQseCode());
+					r.setTxgCode(models.get(0).getTxgCode());
+					r.setResCode(models.get(0).getResCode());
+					r.setDate(searchDate);
+					r.setTime(timeArray[j]);
+					r.setGenEnergy(models.get(searchIndex - 1).getGenEnergy());
+					r.setDrEnergy(models.get(searchIndex - 1).getDrEnergy());
+					modelsTemp.add(r);
+				}
+			}
+		}
+		// 比對回傳資料的最後一筆資料是否是下個月一日的00:00，若是，則寫入modelsTemp，若不是，將modelsTemp最後一寫入modelsTemp
+		if (!models.get(models.size() - 1).getDate().equals(queryEnd.toLocalDate().toString())) {
+			ReportModel r = new ReportModel();
+			r.setQseCode(models.get(0).getQseCode());
+			r.setTxgCode(models.get(0).getTxgCode());
+			r.setResCode(models.get(0).getResCode());
+			r.setTimestamp(queryEnd.toLocalDate().toString() + " 00:00:00");
+			r.setDate(queryEnd.toLocalDate().toString());
+			r.setTime("00:00");
+			r.setGenEnergy(modelsTemp.get(modelsTemp.size() - 1).getGenEnergy());
+			r.setDrEnergy(modelsTemp.get(modelsTemp.size() - 1).getDrEnergy());
+			modelsTemp.add(r);
+		} else {
+			modelsTemp.add(models.get(models.size() - 1));
+		}
+		// 產生結果資料
+		for (int i = 1; i < modelsTemp.size(); i++) {
+			ReportModel r = new ReportModel();
+			r.setQseCode(modelsTemp.get(0).getQseCode());
+			r.setTxgCode(modelsTemp.get(0).getTxgCode());
+			r.setResCode(modelsTemp.get(0).getResCode());
+			r.setDate(modelsTemp.get(i).getDate());
+			r.setTime(modelsTemp.get(i).getTime());
+			r.setGenEnergy(getCalculate(modelsTemp.get(i).getGenEnergy(), modelsTemp.get(i - 1).getGenEnergy()));
+			r.setDrEnergy(getCalculate(modelsTemp.get(i).getDrEnergy(), modelsTemp.get(i - 1).getDrEnergy()));
+			modelsResult.add(r);
+		}
+		return modelsResult;
+	}
+		
+	// 取得上個月份的資料
+	public List<ReportModel> getLastMonthDateData(LocalDateTime queryStart, Optional<QseProfile> mbQse,
+			Optional<TxgProfile> mbTxg, Optional<TxgFieldProfile> mbRes) throws WebException {
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		// 上個月第一天
+		LocalDate lastMonth = LocalDate.of(queryStart.getYear(), queryStart.getMonthValue() - 1, 1);
+		// 上個月的最後一天
+		LocalDate lastDay = lastMonth.with(TemporalAdjusters.lastDayOfMonth());
+		String lastMonthString = lastMonth.format(fmt) + " 00:00";
+		String lastDayString = lastDay.format(fmt) + " 23:45";
+		LocalDateTime lastQueryStart = processQueryDate(lastMonthString);
+		LocalDateTime lastQueryEnd = processQueryDate(lastDayString);
+		ReportModelGenerator modelGenerator = context.getBean(ReportModelGenerator.class, mbQse.get(), mbTxg.get(),
+				mbRes.get(), lastQueryStart, lastQueryEnd);
+
+		log.info("generating model last month data...");
+		List<ReportModel> models = modelGenerator.generate(true);
+		return models;
+	}
+		
+		private static final DateTimeFormatter INPUT_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+	    private LocalDateTime processQueryDate(String dateStr) {
+	        return LocalDateTime.parse(dateStr, INPUT_FORMATTER);
+	    }
 }

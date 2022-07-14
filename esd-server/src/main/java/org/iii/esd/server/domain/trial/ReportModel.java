@@ -41,6 +41,8 @@ public class ReportModel {
     private String kvar;
     private String powerFactor;
     private String soc;
+    private String date;
+    private String time;
 
     // HEADER:
     // QSE_ID,GROUP_ID,RESOURCE_ID,SERVICE_ITEM,DATA_TIMESTAMP,HZ,V_A,V_B,V_C,A_A,A_B,A_C,TOT_W,SUPWH,DMDWH,TOT_VAR,TOT_PF,SOC
@@ -64,5 +66,19 @@ public class ReportModel {
                     .add(cons("TOT_VAR", "kvar"))
                     .add(cons("TOT_PF", "powerFactor"))
                     .add(cons("SOC", "soc"))
+                    .build();
+    
+    
+    // HEADER:
+    // QSE_ID,GROUP_ID,RESOURCE_ID,DATA_TIMESTAMP,SUPWH,DMDWH
+    public static final List<TypedPair<String>> HEADER_NAME_ENERGYDOWNLOAD =
+            ImmutableList.<TypedPair<String>>builder()
+                    .add(cons("QSE_ID", "qseCode"))
+                    .add(cons("GROUP_ID", "txgCode"))
+                    .add(cons("RESOURCE_ID", "resCode"))
+                    .add(cons("DATE", "date"))
+                    .add(cons("TIME", "time"))
+                    .add(cons("SUPWH", "genEnergy"))
+                    .add(cons("DMDWH", "drEnergy"))
                     .build();
 }

@@ -34,6 +34,7 @@ public class RestConstants {
     public static final String RESOURCE_DEVICE = "device";
     public static final String RESOURCE_DETAIL = "detail";
     public static final String RESOURCE_DOWNLOAD = "download";
+    public static final String RESOURCE_ENERGYDOWNLOAD = "energydownload";
     public static final String RESOURCE_DREG = "dreg";
     public static final String RESOURCE_ED = "ed";
     public static final String RESOURCE_ESD = "esd";
@@ -685,7 +686,14 @@ public class RestConstants {
     public static final String REST_REPORT_DOWNLOAD =
             FUNCTION_ESD + SLASH + RESOURCE_REPORT + SLASH + RESOURCE_DOWNLOAD + SLASH
                     + PATHVARIABLE_QSEID + SLASH + PATHVARIABLE_TXGID + SLASH + PATHVARIABLE_RESID;
-
+    
+    /**
+    * Universal EnergyData Export /esd/report/energydownload/{qseId}/{txgId}/{resId}
+    */
+    public static final String REST_REPORT_ENERGYDOWNLOAD = 
+			 FUNCTION_ESD + SLASH + RESOURCE_REPORT + SLASH + RESOURCE_ENERGYDOWNLOAD + SLASH
+             + PATHVARIABLE_QSEID + SLASH + PATHVARIABLE_TXGID + SLASH + PATHVARIABLE_RESID;
+    
     private static final String RESOURCE_WHOAMI = "whoami";
     private static final String RESOURCE_ECHO = "echo";
 

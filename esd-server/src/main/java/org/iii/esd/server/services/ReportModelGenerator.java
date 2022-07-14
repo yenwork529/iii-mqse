@@ -70,7 +70,7 @@ public class ReportModelGenerator {
         this.resourceType = ResourceType.ofCode(res.getResType());
     }
 
-    public List<ReportModel> generate() throws WebException {
+    public List<ReportModel> generate(boolean isEnergyDownload) throws WebException {
         BaseParam param = BaseParam.builder()
                                    .qseCode(qse.getQseCode())
                                    .txgCode(txg.getTxgCode())
@@ -85,9 +85,9 @@ public class ReportModelGenerator {
         switch (serviceType) {
             case SR:
             case SUP:
-                return (new SrReportModelGenerator(drDataRepository, param)).generate();
+                return (new SrReportModelGenerator(drDataRepository, param)).generate(isEnergyDownload);
             case dReg:
-                return (new DRegReportModelGenerator(gessDataRepository, param)).generate();
+                return (new DRegReportModelGenerator(gessDataRepository, param)).generate(isEnergyDownload);
             default:
                 throw new WebException(Error.internalServerError, "not support");
         }
@@ -116,6 +116,12 @@ public class ReportModelGenerator {
         Instant instant = date.toInstant();
         return TIMESTAMP_FORMATTER.format(instant);
     }
+    
+	public static String getExportTimestampEngerEnergyDownload(Date date) {
+		ZoneId timeZone = ZoneId.systemDefault();
+		LocalDateTime getLocalDateTime = date.toInstant().atZone(timeZone).toLocalDateTime();
+		return TIMESTAMP_FORMATTER.format(getLocalDateTime);
+	}
 
     public static class DRegReportModelGenerator {
         private final GessResDataDao gessDataRepository;
@@ -126,36 +132,55 @@ public class ReportModelGenerator {
             this.param = param;
         }
 
-        public List<ReportModel> generate() throws WebException {
-            List<GessResData> gessData = gessDataRepository.findByResIdAndTimestampBetweenLt(
-                    param.getResId(), toDate(param.getStart()), toDate(param.getEnd()));
-
-            if (CollectionUtils.isEmpty(gessData)) {
-                throw new WebException(Error.noData, param.getResId());
-            }
-
-            return gessData.stream()
-                           .map(data -> ReportModel.builder()
-                                                   .qseCode(param.getQseCode().toString())
-                                                   .txgCode(param.getTxgCode().toString())
-                                                   .resCode(param.getResCode().toString())
-                                                   .serviceType(getExportServiceType(param.getServiceType()))
-                                                   .timestamp(getExportTimestamp(data.getTimestamp()))
-                                                   .frequency(tpcValue(data.getM1Frequency()).toPlainString())
-                                                   .voltageA(voltageValue(data.getM1VoltageA()).toPlainString())
-                                                   .voltageB(voltageValue(data.getM1VoltageB()).toPlainString())
-                                                   .voltageC(voltageValue(data.getM1VoltageC()).toPlainString())
-                                                   .currentA(tpcValue(data.getM1CurrentA()).toPlainString())
-                                                   .currentB(tpcValue(data.getM1CurrentB()).toPlainString())
-                                                   .currentC(tpcValue(data.getM1CurrentC()).toPlainString())
-                                                   .activePower(tpcValue(data.getM1kW()).toPlainString())
-                                                   .genEnergy("")
-                                                   .drEnergy("")
-                                                   .kvar(tpcValue(data.getM1kVar()).toPlainString())
-                                                   .powerFactor(tpcValue(data.getM1PF()).toPlainString())
-                                                   .soc(tpcValue(data.getE1SOC()).toPlainString())
-                                                   .build()).collect(Collectors.toList());
-        }
+        public List<ReportModel> generate(boolean isEnergyDownload) throws WebException {
+            List<GessResData> gessData;
+			if (isEnergyDownload) {
+				gessData = gessDataRepository.findByResIdAndTimestampBetweenLtAndtimeticksMod(param.getResId(),
+						toDate(param.getStart()), toDate(param.getEnd()));
+			} else {
+				gessData = gessDataRepository.findByResIdAndTimestampBetweenLt(param.getResId(),
+						toDate(param.getStart()), toDate(param.getEnd()));
+			}
+			if (CollectionUtils.isEmpty(gessData)) {
+				throw new WebException(Error.noData, param.getResId());
+			}
+			
+			
+			if (isEnergyDownload) {
+				return gessData.stream()
+						.map(data -> ReportModel.builder().qseCode(param.getQseCode().toString())
+								.txgCode(param.getTxgCode().toString()).resCode(param.getResCode().toString())
+								.serviceType(getExportServiceType(param.getServiceType()))
+								.timestamp(getExportTimestampEngerEnergyDownload(data.getTimestamp()))
+								.date(getExportTimestampEngerEnergyDownload(data.getTimestamp()).substring(0, 10))
+								.time(getExportTimestampEngerEnergyDownload(data.getTimestamp()).substring(11, 16))
+								.genEnergy(data.getM1EnergyIMP().toPlainString())
+								.drEnergy(data.getM1EnergyEXP().toPlainString())
+								.build()).collect(Collectors.toList());
+			} else {
+				return gessData.stream()
+                        .map(data -> ReportModel.builder()
+                                                .qseCode(param.getQseCode().toString())
+                                                .txgCode(param.getTxgCode().toString())
+                                                .resCode(param.getResCode().toString())
+                                                .serviceType(getExportServiceType(param.getServiceType()))
+                                                .timestamp(getExportTimestamp(data.getTimestamp()))
+                                                .frequency(tpcValue(data.getM1Frequency()).toPlainString())
+                                                .voltageA(voltageValue(data.getM1VoltageA()).toPlainString())
+                                                .voltageB(voltageValue(data.getM1VoltageB()).toPlainString())
+                                                .voltageC(voltageValue(data.getM1VoltageC()).toPlainString())
+                                                .currentA(tpcValue(data.getM1CurrentA()).toPlainString())
+                                                .currentB(tpcValue(data.getM1CurrentB()).toPlainString())
+                                                .currentC(tpcValue(data.getM1CurrentC()).toPlainString())
+                                                .activePower(tpcValue(data.getM1kW()).toPlainString())
+                                                .genEnergy("")
+                                                .drEnergy("")
+                                                .kvar(tpcValue(data.getM1kVar()).toPlainString())
+                                                .powerFactor(tpcValue(data.getM1PF()).toPlainString())
+                                                .soc(tpcValue(data.getE1SOC()).toPlainString())
+                                                .build()).collect(Collectors.toList());
+			}
+		}
     }
 
     public static class SrReportModelGenerator {
@@ -167,39 +192,61 @@ public class ReportModelGenerator {
             this.param = param;
         }
 
-        public List<ReportModel> generate() throws WebException {
-            List<DrResData> drData = drDataRepository.findByResIdAndTimestampBetweenLt(
+        public List<ReportModel> generate(boolean isEnergyDownload) throws WebException {
+            List<DrResData> drData;
+            if(isEnergyDownload) {
+            	drData = drDataRepository.findByResIdAndTimestampBetweenLtAndtimeticksMod(
                     param.getResId(), toDate(param.getStart()), toDate(param.getEnd()));
+            }else {
+            	drData = drDataRepository.findByResIdAndTimestampBetweenLt(
+                        param.getResId(), toDate(param.getStart()), toDate(param.getEnd()));
 
+            }
             if (CollectionUtils.isEmpty(drData)) {
                 throw new WebException(Error.noData, param.getResId());
             }
 
-            return drData.stream()
-                         .map(data -> {
-                             TypedPair<BigDecimal> energy = getEnergyByResourceType(data);
+			if (isEnergyDownload) {
+				return drData.stream().map(data -> {
+					TypedPair<BigDecimal> energy = getEnergyByResourceType(data);
 
-                             return ReportModel.builder()
-                                               .qseCode(param.getQseCode().toString())
-                                               .txgCode(param.getTxgCode().toString())
-                                               .resCode(param.getResCode().toString())
-                                               .serviceType(getExportServiceType(param.getServiceType()))
-                                               .timestamp(getExportTimestamp(data.getTimestamp()))
-                                               .frequency("")
-                                               .voltageA("")
-                                               .voltageB("")
-                                               .voltageC("")
-                                               .currentA("")
-                                               .currentB("")
-                                               .currentC("")
-                                               .activePower(tpcValue(data.getM1kW()).toPlainString())
-                                               .genEnergy(energy.getLeft().toPlainString())
-                                               .drEnergy(energy.getRight().toPlainString())
-                                               .kvar("")
-                                               .powerFactor("")
-                                               .soc(tpcValue(or(data.getDr1Status(), ZERO)).toPlainString())
-                                               .build();
-                         }).collect(Collectors.toList());
+					return ReportModel.builder().qseCode(param.getQseCode().toString())
+							.txgCode(param.getTxgCode().toString())
+							.resCode(param.getResCode().toString())
+							.timestamp(getExportTimestampEngerEnergyDownload(data.getTimestamp()))
+							.date(getExportTimestampEngerEnergyDownload(data.getTimestamp()).substring(0, 10))
+							.time(getExportTimestampEngerEnergyDownload(data.getTimestamp()).substring(11, 16))
+							.genEnergy(energy.getLeft().toPlainString())
+							.drEnergy(energy.getRight().toPlainString())
+							.build();
+				}).collect(Collectors.toList());
+			} else {
+
+				return drData.stream().map(data -> {
+					TypedPair<BigDecimal> energy = getEnergyByResourceType(data);
+
+					 return ReportModel.builder()
+                             .qseCode(param.getQseCode().toString())
+                             .txgCode(param.getTxgCode().toString())
+                             .resCode(param.getResCode().toString())
+                             .serviceType(getExportServiceType(param.getServiceType()))
+                             .timestamp(getExportTimestamp(data.getTimestamp()))
+                             .frequency("")
+                             .voltageA("")
+                             .voltageB("")
+                             .voltageC("")
+                             .currentA("")
+                             .currentB("")
+                             .currentC("")
+                             .activePower(tpcValue(data.getM1kW()).toPlainString())
+                             .genEnergy(energy.getLeft().toPlainString())
+                             .drEnergy(energy.getRight().toPlainString())
+                             .kvar("")
+                             .powerFactor("")
+                             .soc(tpcValue(or(data.getDr1Status(), ZERO)).toPlainString())
+                             .build();
+       }).collect(Collectors.toList());
+			}
         }
 
         /**
