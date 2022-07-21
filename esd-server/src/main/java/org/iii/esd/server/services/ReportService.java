@@ -2,6 +2,7 @@ package org.iii.esd.server.services;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URI;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -213,9 +214,16 @@ public class ReportService {
 	
 	// 計算，並去除小數點
 	public String getCalculate(String t2, String t1) {
-		double a2 = Double.parseDouble(t2);
-		double a1 = Double.parseDouble(t1);
-		String num = Double.toString((a2 - a1) * 100);
+		BigDecimal overflow = new BigDecimal("99999999.9");
+		BigDecimal a2 = new BigDecimal(t2);
+		BigDecimal a1 = new BigDecimal(t1);
+		BigDecimal result;
+		if (a2.compareTo(a1) == -1) {
+			a2 = a2.add(overflow);
+		}
+		result = a2.subtract(a1).multiply(new BigDecimal(100));
+
+		String num = result.toString();
 		if (num.indexOf(".") > 0) {// 判斷是否有小數點
 			num = num.replaceAll("0+?$", "");// 去掉多餘的0
 			num = num.replaceAll("[.]$", "");// 如最後一位是.則去掉
